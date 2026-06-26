@@ -92,7 +92,7 @@
     "section": "Problem Set",
     "subsection": "Exercises",
     "problem_tag": "$F=ma$",
-    "problem": "A rod moves freely between the horizontal floor and the slanted wall. When the end in contact with the floor is moving at $v$, what is the speed of the end in contact with the wall?\n\\begin{center}\n    \\includegraphics[width = 0.4 \\linewidth]{17_16.PNG}\n\\end{center}\n(A) $v\\dfrac{\\sin \\theta}{\\cos(\\alpha - \\theta)}$ \\quad (B) $v\\dfrac{\\sin (\\alpha - \\theta)}{\\cos(\\alpha + \\theta)}$ \\quad (C) $v\\dfrac{\\cos (\\alpha - \\theta)}{\\sin(\\alpha + \\theta)}$ \\quad (D) $v\\dfrac{\\cos \\theta}{\\cos (\\alpha - \\theta)}$ \\quad (E) $v\\dfrac{\\sin \\theta}{\\cos(\\alpha + \\theta)}$",
+    "problem": "A rod moves freely between the horizontal floor and the slanted wall. When the end in contact with the floor is moving at $v$, what is the speed of the end in contact with the wall?\n\\begin{center}\n    \\includegraphics[width = 0.4 \\linewidth]{17_16.PNG}\n\\end{center}\n(A) $v\\dfrac{\\sin \\theta}{\\cos(\\alpha - \\theta)}\\quad$ (B) $v\\dfrac{\\sin (\\alpha - \\theta)}{\\cos(\\alpha + \\theta)}\\quad$ (C) $v\\dfrac{\\cos (\\alpha - \\theta)}{\\sin(\\alpha + \\theta)}\\quad$ (D) $v\\dfrac{\\cos \\theta}{\\cos (\\alpha - \\theta)}\\quad$ (E) $v\\dfrac{\\sin \\theta}{\\cos(\\alpha + \\theta)}$",
     "problem_images": [
       "Problem_solving_sol/17_16.PNG"
     ],
