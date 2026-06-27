@@ -50,7 +50,7 @@
     "section": "Problem Set",
     "subsection": "Concept Checks",
     "problem_tag": "$F=ma$",
-    "problem": "\\begin{anum}\nA car is driving against the wind at a constant speed $v_0$ relative to the ground. The wind direction is always opposite to the car’s velocity, but its speed fluctuates about an average speed of $v$ relative to the ground. The air drag force is $Av_{\\text{rel}}^2$, where $A$ is a constant and $v_{\\text{rel}}$ is the relative speed between the car and the wind. What is the average rate $P$ of energy dissipation due to the air resistance?\n    \\begin{anum}\n        \\item $\\overline P = Av0(v0 + v)^2$\n        \\item $\\overline P > Av_0(v_0+v)^2$\n        \\item $\\overline P < Av_0(v_0+v)^2$\n        \\item Both (B) and (C) are possible depending on how v fluctuates.\n        \\item Both (A) and (C) are possible depending on how v fluctuates.\n    \\end{anum}\n\\end{anum}",
+    "problem": "A car is driving against the wind at a constant speed $v_0$ relative to the ground. The wind direction is always opposite to the car’s velocity, but its speed fluctuates about an average speed of $v$ relative to the ground. The air drag force is $Av_{\\text{rel}}^2$, where $A$ is a constant and $v_{\\text{rel}}$ is the relative speed between the car and the wind. What is the average rate $P$ of energy dissipation due to the air resistance?\n    \\begin{anum}\n        \\item $\\overline P = Av_0(v_0 + v)^2$\n        \\item $\\overline P > Av_0(v_0+v)^2$\n        \\item $\\overline P < Av_0(v_0+v)^2$\n        \\item Both (B) and (C) are possible depending on how $v$ fluctuates.\n        \\item Both (A) and (C) are possible depending on how $v$ fluctuates.\n    \\end{anum}",
     "problem_images": [],
     "solution": "If the true velocity of the car is $v + \\delta v$, we have $$\\overline P = A(v_0 + v + \\delta v)^2 v_0 = Av_0 ((v_0+v)^2 + \\delta v^2 + 2\\delta v (v_0 + v)).$$ Now if we average this over $\\delta v$, since it can be positive or negative, the third term goes the 0, while the second term is positive, so $\\overline P > Av_0 (v_0+v)^2$, which is <strong>B</strong>.",
     "solution_images": [],
@@ -173,17 +173,6 @@
       "Energy Sols/fma_bucket.png"
     ],
     "solution": "The solution to this problem isn't complicated, just tricky. The work needed is equal to the total change in energy of the system, which is just the change in gravitational potential energy here, as nothing is moving and no other forces are present. Since the bucket is massless, the change in potential energy just corresponds to the amount of additional water above the surface and how much it had to be raised. We can think of all the water in the bucket to be coming from the infinitesimally thin top layer of the lake as every other height in the lake has water everywhere. The bucket is an average height $h/2$ above the surface, so $$\\Delta U = M_w \\frac{gh}{2} = (\\rho \\pi R^2 h) \\frac{h}{2} = \\boxed{\\rho \\pi R^2 h^2/2}.$$",
-    "solution_images": [],
-    "solution_type": "sol"
-  },
-  {
-    "problem_set": "Energy Sols",
-    "section": "Problem Set",
-    "subsection": "Challenge Problems",
-    "problem_tag": null,
-    "problem": "This time, a block of mass $m$ is dropped from a height $H$ above another block of mass $m$, which is connected to a spring of spring constant $k$. What is the maximum compression of the spring with respect to its original position? Note that the original position is slightly compressed from rest length already because of the mass $m$.",
-    "problem_images": [],
-    "solution": "You can ignore this problem as it has momentum content, sorry!",
     "solution_images": [],
     "solution_type": "sol"
   },

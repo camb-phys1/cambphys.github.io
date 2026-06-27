@@ -67,7 +67,7 @@
     "problem_tag": null,
     "problem": "<a href=\"https://aapt.org/physicsteam/upload/2023-USAPhO-Exam.pdf#page=6\" target=\"_blank\" rel=\"noopener\">USAPhO 2023/A3</a>. This problem has a nice surprise at the end!",
     "problem_images": [],
-    "solution": "<p><a href=\"https://www.aapt.org/physicsteam/2023/upload/2023-USAPhO-solutions.pdf\\#page=10\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
+    "solution": "<p><a href=\"https://aapt.org/physicsteam/upload/2023-USAPhO-solutions.pdf#page=10\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": "sol"
   },
@@ -78,7 +78,7 @@
     "problem_tag": null,
     "problem": "A couple problems on particles colliding with walls.\n    \\begin{anum}\n        \\item A particle reflects off of a container wall and continues travelling. What is the average distance $d_1$ it travels before colliding with another particle in terms of the mean free path $\\lambda$?\n        \\item A particle collides with a container wall. What is the average distance $d_2$ between the particle's last collision with another particle and its collision with the container wall in terms of the mean free path $\\lambda$?\n        \\item Now suppose we watch the wall over a long time, and for each particle, we record the length of the path between its collision before the wall and its collision after the wall. What answer do we get? Should we get $d_1 + d_2$? Or should we just get $\\lambda$ as it is just the distance between collisions?\n        \\item (Blundell-Blundell). Show that particles hitting a plane boundary have\ntravelled a distance $2\\lambda / 3$ perpendicular to the plane\nsince their last collision, on average. This one requires a little integration.\n    \\end{anum}",
     "problem_images": [],
-    "solution": "\\begin{anum}\n\\item The average distance for a particle to collide at any given point is just $\\lambda$, by definition.\n    \\item By symmetry, this is again $\\lambda$.\n    \\item As described, the distance that we are measuring is $d_1 + d_2$, so the average is $\\langle d_1 + d_2\\rangle = \\langle d_1 \\rangle + \\langle d_2 \\rangle = 2\\lambda$.\n\n    A way to think about this longer average length intuitively is that if we have a bunch of paths between collisions (consider the box reflected such that reflected paths are straight) the longer ones are more likely to intersect the wall line.\n\\end{anum}",
+    "solution": "\\begin{anum}\n\\item The average distance for a particle to collide at any given point is just $\\lambda$, by definition.\n    \\item By symmetry, this is again $\\lambda$.\n    \\item As described, the distance that we are measuring is $d_1 + d_2$, so the average is $\\langle d_1 + d_2\\rangle = \\langle d_1 \\rangle + \\langle d_2 \\rangle = 2\\lambda$.\n\n    A way to think about this longer average length intuitively is that if we have a bunch of paths between collisions (consider the box reflected such that reflected paths are straight) the longer ones are more likely to intersect the wall line.\n    \\item For particles hitting a plane wall, the directions are not uniformly distributed in $\\theta$. Particles moving more nearly perpendicular to the wall are more likely to hit it, so the angular distribution is weighted by the perpendicular component of velocity. Let $\\mu = \\cos\\theta$, where $\\theta$ is the angle between the particle's velocity and the normal to the wall. For particles hitting the wall, the probability density for $\\mu$ is\n    $$p(\\mu)=2\\mu,\\qquad 0\\leq \\mu\\leq 1,$$\n    where the factor of $\\mu$ comes from the flux through the wall being proportional to the normal component of velocity. Now let $s$ be the distance the particle has traveled since its last collision, with $\\langle s\\rangle = \\lambda$. The perpendicular distance traveled since the last collision is $x = s\\cos\\theta = s\\mu$, so since the path length and direction are independent,\n    $$\\langle x\\rangle=\\langle s\\mu\\rangle = \\langle s\\rangle\\langle \\mu\\rangle.$$\n    Now\n    $$\\langle \\mu\\rangle=\\int_0^1 \\mu\\, p(\\mu)\\,d\\mu=\\int_0^1 2\\mu^2\\,d\\mu=\\frac{2}{3},$$\n    so particles hitting a plane boundary have, on average, traveled a perpendicular distance\n    $$\\boxed{\\langle x\\rangle=\\frac{2\\lambda}{3}}$$\n    since their last collision.\n\\end{anum}",
     "solution_images": [],
     "solution_type": "alphasol"
   },
@@ -135,7 +135,7 @@
     "problem_tag": null,
     "problem": "<a href=\"https://aapt.org/Common/upload/2020_USAPhO.pdf#page=10\" target=\"_blank\" rel=\"noopener\">USAPhO 2020/B3</a>, a tough problem on non-ideal gases.",
     "problem_images": [],
-    "solution": "<p><a href=\"https://aapt.org/Common/upload/2020_USAPhO_solutions.pdf\\#page=18\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
+    "solution": "<p><a href=\"https://aapt.org/Common/upload/2020_USAPhO_solutions.pdf#page=18\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": "sol"
   },

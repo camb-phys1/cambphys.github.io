@@ -341,6 +341,7 @@
     const html = [];
     html.push(`
       <div class="results-top-actions">
+        <a class="pset-back" href="${cfg.back}">← Back to course</a>
         <button type="button" class="retake-btn" id="retake-btn-top">Retake Exam</button>
       </div>`);
 

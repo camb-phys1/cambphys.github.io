@@ -28,7 +28,7 @@
     "problem_tag": null,
     "problem": "    <a href=\"https://www.aapt.org/physicsteam/2014/upload/E3-1-7.pdf#page=8\" target=\"_blank\" rel=\"noopener\">2013 USAPhO/B2</a>, a series of several Poynting vector exercises on standard setups.",
     "problem_images": [],
-    "solution": "<p><a href=\"https://aapt.org/physicsteam/2019/upload/USAPhO-2013-Solutions.pdf\\#page=14\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
+    "solution": "<p><a href=\"https://aapt.org/physicsteam/2019/upload/USAPhO-2013-Solutions.pdf#page=14\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": "sol"
   },
@@ -61,7 +61,7 @@
     "section": "Problem Set",
     "subsection": "Exercises",
     "problem_tag": null,
-    "problem": "\\begin{anum}\nHere's a fascinating puzzle, first popularized by <a href=\"https://www.youtube.com/watch?v=bHIhgxav9LY\" target=\"_blank\" rel=\"noopener\">Veritasium</a>. Suppose you have a really long circuit as pictured below.\n    \\begin{center}\n        \\includegraphics[height=4cm]{circuit_puzzle.png}\n    \\end{center}\n    How long after the switch is closed does it take for the light bulb to light up?\n    \\begin{anum}\n        \\item 1 year\n        \\item 2 years\n        \\item $1/c$ seconds\n        \\item Other?\n    \\end{anum}\n    Explain your answer.\n\\end{anum}",
+    "problem": "Here's a fascinating puzzle, first popularized by <a href=\"https://www.youtube.com/watch?v=bHIhgxav9LY\" target=\"_blank\" rel=\"noopener\">Veritasium</a>. Suppose you have a really long circuit as pictured below.\n    \\begin{center}\n        \\includegraphics[height=4cm]{circuit_puzzle.png}\n    \\end{center}\n    How long after the switch is closed does it take for the light bulb to light up?\n    \\begin{anum}\n        \\item 1 year\n        \\item 2 years\n        \\item $1/c$ seconds\n        \\item Other?\n    \\end{anum}\n    Explain your answer.",
     "problem_images": [
       "EM Waves Sols/circuit_puzzle.png"
     ],
@@ -133,7 +133,7 @@
     "section": "Problem Set",
     "subsection": "Challenge Problems",
     "problem_tag": null,
-    "problem": "<a href=\"https://www.aapt.org/Common2022/upload/2021-USAPhO_plus.pdf\\#page=8\" target=\"_blank\" rel=\"noopener\">2021 USAPhO+/T3</a>, a question that combines many of our previous weeks together.",
+    "problem": "<a href=\"https://aapt.org/Common2022/upload/2021-USAPhO_plus_Solutions_v2.pdf\" target=\"_blank\" rel=\"noopener\">2021 USAPhO+/T3</a>, a question that combines many of our previous weeks together.",
     "problem_images": [],
     "solution": "<p><a href=\"https://aapt.org/Common2022/upload/2021-USAPhO_plus_Solutions_v2.pdf\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],

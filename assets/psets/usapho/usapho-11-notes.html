@@ -4,21 +4,21 @@
     where $\gamma = \frac{1}{\sqrt{1-v^2/c^2}}.$</div></div></p><p><div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: Lorentz Transformations</div><div>Let the frame $S'$ move with velocity $v\hat{\mathbf x}$ with respect to the frame of the observer, $S$. Then,
     $$x = \gamma (x' + vt'), t = \gamma (t'+vx'/c^2), \gamma = \frac{1}{\sqrt{1-v^2/c^2}}.$$
     This can also be written in matrix form,
-    $$\begin{pmatrix}x<br> ct\end{pmatrix} = \begin{pmatrix} \gamma & \gamma \beta <br> \gamma \beta & \gamma \end{pmatrix}\begin{pmatrix}x'<br> ct'\end{pmatrix},$$
+    $$\begin{pmatrix}x\\ ct\end{pmatrix} = \begin{pmatrix} \gamma & \gamma \beta \\ \gamma \beta & \gamma \end{pmatrix}\begin{pmatrix}x'\\ ct'\end{pmatrix},$$
     where $\beta = v/c$. This can be made even simpler by setting $c = 1$.</div></div>
 <div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: Invariant Interval</div><div>The quantity
     $$s^2 = (ct)^2 - x^2,$$
     known as the invariant interval, is invariant across Lorentz transformations. You won't see this used much in the olympiad, but the generalization of this -- the magnitude of any <a href="https://en.wikipedia.org/wiki/Four-vector" target="_blank" rel="noopener">four-vector</a> will be introduced next week and be useful for energy and momentum.</div></div></p><p><div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem</div><div>If an object moves at velocity $v_2$ in frame $S'$ which moves at velocity $v_1$ with respect to frame $S$, then in frame $S$, the object moves at
     $$v = \frac{v_1 +v_2}{1+v_1v_2/c^2}.$$</div></div></p><p>Sometimes, spacetime diagrams, or minkowski diagrams, can be especially helpful for problem solving. They are graphs with a $t$ orc $ct$ vertical axis and $x$ as the horizontal axis, as shown below.
 <div style="text-align:center">
-    <img src="<img src="/assets/psets/usapho/usapho-11/minky.png" alt="" onerror="this.style.display='none'" style="max-width:100%;height:auto;display:block;margin:.5em auto;">" alt="" style="max-width:100%;height:auto;display:block;margin:.5em auto;">
+    <img src="/assets/psets/usapho/usapho-11/minky.png" alt="" onerror="this.style.display='none'" style="max-width:100%;height:auto;display:block;margin:.5em auto;">
 </div>
 The $45$ degree line represents the path of light. One must be careful though, as the units scale differently:
 $$\frac{\text{one }ct'\text{ unit}}{\text{one }ct\text{ unit}} = \frac{\text{one }x'\text{ unit}}{\text{one }x\text{ unit}} = \sqrt{\frac{1+\beta^2}{1-\beta^2}}$$</p><p><div class="note-box" style="border-left:4px solid #2f5d8c;background:#e3edf6;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#2f5d8c;margin-bottom:.3em;">Idea: Rapidity</div><div>Rapidity, $\phi$ is defined by
     $$\tanh \phi = \beta = v/c.$$
     This is especially useful as the Lorentz transform becomes
     $$\begin{pmatrix}
- x <br> ct
-\end{pmatrix} = \begin{pmatrix}\cosh \phi & \sinh \phi <br> \sinh \phi & \cosh \phi\end{pmatrix}\begin{pmatrix}x' <br> ct'\end{pmatrix},$$
+ x \\ ct
+\end{pmatrix} = \begin{pmatrix}\cosh \phi & \sinh \phi \\ \sinh \phi & \cosh \phi\end{pmatrix}\begin{pmatrix}x' \\ ct'\end{pmatrix},$$
 analogous to a rotation in 2D. The velocity addition formula also becomes nicer, with
 $$\tanh(\phi_1+\phi_2) = \frac{\tanh \phi_1 + \tanh \phi_2}{1+\tanh\phi_1 \tanh \phi_2}.$$</div></div></p>

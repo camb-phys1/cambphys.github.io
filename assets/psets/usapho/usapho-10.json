@@ -17,7 +17,7 @@
     "problem_tag": null,
     "problem": "A window of thickness $t_1$, heat conductivity $k_1$, and area $A$ is coated by a thin layer of insulation with thickness $t_2$, conductivity $k_2$, and area $A$. If the window-insulation combination were replaced by some material with the same thickness ($t_1+t_2$) and area, what would be the necessary conductivity $k$ of that material so that it transfers heat exactly like the window-insulation combination does?",
     "problem_images": [],
-    "solution": "The total ``resistance\" of the combination is the window and the insulation connected in series: $$R=\\frac{t_1}{k_1A}+\\frac{t_2}{k_2A}$$ The resistance of the singular material would be $$R=\\frac{t_1+t_2}{kA}$$Equating the two, we get $$k=\\boxed{\\frac{k_1k_2(t_1+t_2)}{k_1t_2+k_2t_1}}$$",
+    "solution": "The total \"resistance\" of the combination is the window and the insulation connected in series: $$R=\\frac{t_1}{k_1A}+\\frac{t_2}{k_2A}$$ The resistance of the singular material would be $$R=\\frac{t_1+t_2}{kA}$$Equating the two, we get $$k=\\boxed{\\frac{k_1k_2(t_1+t_2)}{k_1t_2+k_2t_1}}$$",
     "solution_images": [],
     "solution_type": "sol"
   },

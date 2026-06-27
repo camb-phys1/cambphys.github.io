@@ -92,7 +92,7 @@
     "problem_tag": "EFPhO",
     "problem": "We worked with solenoids far away from each other, but now we deal with two that are right next to each other. You have two solenoids, each with $N$ turns, length $l$, and cross sectional areas $A_1 < A_2 \\ll l^2$. They are each connected to a constant current source of magnitude $I$ and then the smaller solenoid is placed inside the other one such that the centers of the solenoids are a distance $x < l$ apart.\n    \\begin{anum}\n        \\item Assuming that $A_1,A_2 \\ll x^2, (l-x)^2$, find the total energy $E_m$ of the magnetic fields in this system.\n        \\item Find the electromotive forces\n        $\\mathcal E_1$ and $\\mathcal E_2$ generated on the coils when one is\n        pulled out with a speed $v$.\n        \\item Find the force $F$ needed to pull\n        one coil outwards.\n    \\end{anum}",
     "problem_images": [],
-    "solution": "<p><a href=\"https://www.ioc.ee/~kalda/ipho/es/e-s-2015-sol.pdf\\#page=3\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
+    "solution": "<p><a href=\"https://www.ioc.ee/~kalda/ipho/es/e-s-2015-sol.pdf#page=3\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": "sol"
   },
@@ -112,9 +112,9 @@
     "section": "Problem Set",
     "subsection": "Challenge Problems",
     "problem_tag": null,
-    "problem": "<a href=\"https://www.aapt.org/physicsteam/upload/2023-USAPhO-Exam.pdf\\#page=9\" target=\"_blank\" rel=\"noopener\">2023 USAPhO, B1</a>",
+    "problem": "<a href=\"https://aapt.org/physicsteam/upload/2023-USAPhO-Exam.pdf#page=9\" target=\"_blank\" rel=\"noopener\">2023 USAPhO, B1</a>",
     "problem_images": [],
-    "solution": "<p><a href=\"https://www.aapt.org/physicsteam/2023/upload/2023-USAPhO-solutions.pdf\\#page=15\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
+    "solution": "<p><a href=\"https://aapt.org/physicsteam/upload/2023-USAPhO-solutions.pdf#page=15\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": "sol"
   },

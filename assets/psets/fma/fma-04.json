@@ -64,17 +64,6 @@
     "section": "Problem Set",
     "subsection": "Concept Checks",
     "problem_tag": null,
-    "problem": "Alice has mass 50 kg and Amy has mass 50 kg. While they play Tug of War, Alice pulls on the rope with force 25 N while Amy pulls on the rope with a force 20 N. Find:\n    \\begin{anum}\n        \\item The acceleration $a$ of Alice.\n        \\item The minimal coefficient of friction $\\mu$ between their feet and the ground.\n        \\item The tension $T$ in the rope. \n    \\end{anum}",
-    "problem_images": [],
-    "solution": "This problem is broken, sorry!",
-    "solution_images": [],
-    "solution_type": "sol"
-  },
-  {
-    "problem_set": "Forces_I Sols",
-    "section": "Problem Set",
-    "subsection": "Concept Checks",
-    "problem_tag": null,
     "problem": "You push three blocks $m_1,m_2,m_3$ with a force $F$ from the left (i.e. pushing on $m_1$ towards the right). What are the interacting normal forces $N_{12}$ and $N_{23}$ in terms of $F$ and the masses?\n    \\begin{center}\n        \\includegraphics[width=6cm]{three_blocks.png}\n    \\end{center}",
     "problem_images": [
       "Forces_I Sols/three_blocks.png"

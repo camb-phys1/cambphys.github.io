@@ -3,12 +3,12 @@
     If a more exotic element is in a problem, they will define it for you. The best strategy for dealing with these non-linear circuit elements is to carefully go through the cases.</div></div></p><p><div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: Ampere-Maxwell's Law</div><div>In the case that there is a changing electric field, Ampere’s Law has a correction:
     $$\oint \mathbf B \cdot d \mathbf s = \mu_0 I_{\text{enc}} + \mu_0\epsilon_0 \frac{d\Phi_E}{dt}.$$</div></div></p><p><div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: Maxwell's Equations</div><div>The Ampere-Maxwell Law completes the set of Maxwell's equations:
     \begin{align*}
-        \nabla \cdot \mathbf E &= \frac \rho{\epsilon_0}<br>
-        \nabla \cdot \mathbf B &= 0<br>
-        \nabla \times \mathbf E &= -\frac{\partial \mathbf B}{\partial t}<br>
+        \nabla \cdot \mathbf E &= \frac \rho{\epsilon_0}\\
+        \nabla \cdot \mathbf B &= 0\\
+        \nabla \times \mathbf E &= -\frac{\partial \mathbf B}{\partial t}\\
         \nabla \times \mathbf B &= \mu_0 \mathbf J + \mu_0\epsilon_0 \frac{\partial \mathbf E}{\partial t}
     \end{align*}
-    These equations tell us the existence of \highlight{electromagnetic waves} which move at speed $c =1/\sqrt{\mu_0\epsilon_0}$ as you'll derive in one of the problems below.</div></div></p><p><div class="note-box" style="border-left:4px solid #1b6b34;background:#e6f4ea;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#1b6b34;margin-bottom:.3em;">Definition: Poynting Vector</div><div>Electromagnetic waves carry energy, and one way to quantify that is the \highlight{Poynting vector}, which is defined as
+    These equations tell us the existence of <strong>electromagnetic waves</strong> which move at speed $c =1/\sqrt{\mu_0\epsilon_0}$ as you'll derive in one of the problems below.</div></div></p><p><div class="note-box" style="border-left:4px solid #1b6b34;background:#e6f4ea;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#1b6b34;margin-bottom:.3em;">Definition: Poynting Vector</div><div>Electromagnetic waves carry energy, and one way to quantify that is the <strong>Poynting vector</strong>, which is defined as
     $$\mathbf S = \frac{\mathbf E \times \mathbf B}{\mu_0},$$
     and it gives the flux density of the rate of energy transfer in an electromagnetic field (not necessarily waves).</div></div></p><p><div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: Radiation Pressure</div><div>The poynting vector also gives the momentum density in the electromagnetic field as
     $$p = \frac{\mathbf S}{c^2}.$$
@@ -17,9 +17,4 @@
     $$P = \frac{q^2a^2}{6\pi \epsilon_0 c^3}.$$
     This is known as the Larmor Formula.</div></div></p><p><div class="note-box" style="border-left:4px solid #2f5d8c;background:#e3edf6;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#2f5d8c;margin-bottom:.3em;">Idea</div><div>In many cases where classical mechanics quantities like angular momentum or momentum are not conserved, another quantity can be conserved. It is a general physics principle where symmetries lead to conserved quantities. In the presence of a magnetic field, the canonical angular momentum can be conserved,
     $$\mathbf L_{\text{can}} = \mathbf r \times (\mathbf p + q\mathbf A),$$
-    but the <u>form may look different from problem to problem</u>.</div></div></p><p>%Diodes / non-linear
-%displacement
-%poynting
-%larmor
-%canonical?</p><p>%NOTE: maybe review powerpoint and go more into depth about how EM waves work next year based on how students react this year?
-%have to balance with not going too much into waves stuff yet though.</p>
+    but the <u>form may look different from problem to problem</u>.</div></div></p>

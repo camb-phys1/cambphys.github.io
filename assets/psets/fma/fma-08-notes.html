@@ -1,12 +1,12 @@
-<p>\subsection{Kinematics}</p><p><div class="note-box" style="border-left:4px solid #2f5d8c;background:#e3edf6;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#2f5d8c;margin-bottom:.3em;">Idea: Analogs</div><div>Rotational kinematics variables are analogous to translational ones:
+<h3>Kinematics</h3><p><div class="note-box" style="border-left:4px solid #2f5d8c;background:#e3edf6;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#2f5d8c;margin-bottom:.3em;">Idea: Analogs</div><div>Rotational kinematics variables are analogous to translational ones:
     \begin{align*}
-        \Delta \theta &\leftrightarrow \Delta x <br>
-        \vec \omega &\leftrightarrow \Delta \vec v <br>
+        \Delta \theta &\leftrightarrow \Delta x \\
+        \vec \omega &\leftrightarrow \Delta \vec v \\
         \vec \alpha &\leftrightarrow \vec a.
     \end{align*}
     This gives us familiar looking kinematics equations:
     \begin{align*}
-        \Delta \theta &= \omega_0t + \frac 12 \alpha t^2 <br>
+        \Delta \theta &= \omega_0t + \frac 12 \alpha t^2 \\
         \omega_f^2 &= \omega_0^2 + 2\alpha \Delta \theta.
     \end{align*}</div></div>
 The $F=ma$ will not really test the use of such equations, however. The focus is more on tricky setups and rolling without slipping.</p><p><div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: Instantaneous Center of Rotation</div><div>We know from the definition of angular velocity, that if we have a rigid body rotating around a fixed point with angular velocity $\omega$, then the velocity of a given point $\mathbf r$ from the center has velocity
@@ -15,11 +15,11 @@ The $F=ma$ will not really test the use of such equations, however. The focus is
     $$\mathbf v = \mathbf v_{\text{cm}} + \omega \times \mathbf r = \omega \times (\mathbf r - \mathbf r_{\text{cor}}),$$ where $\mathbf r_{\text{cor}}$ is the center of rotation. Finding this center of rotation is often helpful for intuition.</div></div>
 A particular case where this is helpful is when an object is <em>rolling without slipping</em>. This means the objects contact point with the ground has 0 instantaneous velocity, which makes it the center of rotation! 
 <div style="text-align:center">
-    <img src="<img src="/assets/psets/fma/fma-08/rooll_no sliipp.png" alt="" onerror="this.style.display='none'" style="max-width:100%;height:auto;display:block;margin:.5em auto;">" alt="" style="max-width:100%;height:auto;display:block;margin:.5em auto;">
+    <img src="/assets/psets/fma/fma-08/rooll_no sliipp.png" alt="" onerror="this.style.display='none'" style="max-width:100%;height:auto;display:block;margin:.5em auto;">
 </div>
 This let's us write down $$v = \omega r \implies a = \alpha r.$$
 Further, because the bottom is the instantaneous center, this let's us write $v_{\text{too}} = \omega \cdot (2r) = 2\omega r = 2v.$</p><p><div class="note-box" style="border-left:4px solid #8a6d00;background:#fff3cd;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#8a6d00;margin-bottom:.3em;">Tip: Reference Frames</div><div>You can use reference frames just as you did in regular kinematics! Moving into a rotational reference frame with speed $\omega$ would just mean subtracting off that angular velocity on all the other objects, as usual.</div></div>
-\subsection{Intro to Dynamics}</p><p><div class="note-box" style="border-left:4px solid #1b6b34;background:#e6f4ea;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#1b6b34;margin-bottom:.3em;">Definition: Torque \& Moment of Inertia</div><div>The rotational analog of $F=ma$ is torque, $$\tau = I\alpha = \mathbf r \times \mathbf F,$$ where $I$ is the moment of inertia, which is defined as
+<h3>Intro to Dynamics</h3></p><p><div class="note-box" style="border-left:4px solid #1b6b34;background:#e6f4ea;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#1b6b34;margin-bottom:.3em;">Definition: Torque &amp; Moment of Inertia</div><div>The rotational analog of $F=ma$ is torque, $$\tau = I\alpha = \mathbf r \times \mathbf F,$$ where $I$ is the moment of inertia, which is defined as
     $$I = \sum m_i r_i^2.$$</div></div>
 The $F=ma$ will often have you calculate the moment of inertias of funky objects. In those cases, the following theorems are useful.
 <div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: MOI theorems</div><div>The parallel axis theorem tells us $$I = I_{\text{cm}} + Md^2,$$where $d$ is the distance of the new axis from the COM. The perpendicular axis theorem tells us that for a flat 2D object, the moment of inertia about the perpendicular axis is equal to the sum of two in-plane axes. That is, if the object lies in the $x$-$y$ plane in any orientation,

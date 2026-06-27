@@ -98,17 +98,6 @@
   {
     "problem_set": "Forces_II Sols",
     "section": "Problem Set",
-    "subsection": "Concept checks",
-    "problem_tag": null,
-    "problem": "A chain is passed over a frictionless log of radius $r$ and starts slipping off. Find the minimal speed of the chain $v$ such that it loses contact with the log.",
-    "problem_images": [],
-    "solution": "This question isn't well posed -- sorry! We may include a variant on a future homework assignment.",
-    "solution_images": [],
-    "solution_type": "sol"
-  },
-  {
-    "problem_set": "Forces_II Sols",
-    "section": "Problem Set",
     "subsection": "Exercises",
     "problem_tag": "Morin",
     "problem": "Consider the Atwood’s machine in the figure below. It consists of three pulleys, a short piece of string connecting one mass to the bottom pulley, and a continuous long piece of string that wraps twice around the bottom side of the bottom pulley, and once around the top side of the top two pulleys. The two masses are $m$ and $2m$. Assume that the parts of the string connecting the pulleys are essentially vertical. Find the accelerations of the masses.\n\\begin{center}\n        \\includegraphics[scale=0.18]{morin2}\n    \\end{center}",

@@ -16,6 +16,8 @@ permalink: /notes/
       macros: {
         unit: ["\\,\\mathrm{#1}", 1],
         pdv:  ["\\frac{\\partial #1}{\\partial #2}", 2],
+        eq:   ["#1_{\\text{eq}}", 1],
+        eqr:  "R_{\\text{eq}}",
       },
     },
     options: { renderActions: { addMenu: [] } },
@@ -27,6 +29,7 @@ permalink: /notes/
   <div class="notes-topbar">
     <a class="notes-back" href="/courses/">← Back</a>
     <h1 class="notes-title" id="notes-title">…</h1>
+    <span class="notes-back notes-back-spacer" aria-hidden="true">← Back to course</span>
   </div>
   <div id="notes-readings"></div>
   <div id="notes-body"><p class="pset-loading">Loading…</p></div>
@@ -55,7 +58,7 @@ permalink: /notes/
       const lesson = lessons.find(l => l.id === lessonId);
       const courseTitles = { ap: "AP", fma: "F=ma", usapho: "USAPhO" };
       document.getElementById("notes-title").textContent =
-        (lesson ? lesson.title : lessonId) + " — Notes";
+        (lesson ? lesson.title : lessonId);
       const back = document.querySelector(".notes-back");
       back.href = `/courses/${courseId}/`;
       back.textContent = "← Back to course";

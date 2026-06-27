@@ -11,6 +11,30 @@
   let state = null;
   let tickTimer = null;
 
+  // Custom confirm modal (replaces native confirm so the "website says" prefix
+  // doesn't appear). `title` is the bold heading; `detail` is the smaller body.
+  function customConfirm(title, detail) {
+    return new Promise(resolve => {
+      document.querySelectorAll(".exam-confirm-backdrop").forEach(n => n.remove());
+      const back = document.createElement("div");
+      back.className = "exam-confirm-backdrop";
+      back.innerHTML = `
+        <div class="exam-confirm" role="dialog" aria-modal="true">
+          <h3>${title}</h3>
+          ${detail ? `<p>${detail}</p>` : ""}
+          <div class="exam-confirm-actions">
+            <button type="button" class="exam-confirm-cancel">Cancel</button>
+            <button type="button" class="exam-confirm-ok">OK</button>
+          </div>
+        </div>`;
+      const close = (v) => { back.remove(); resolve(v); };
+      back.querySelector(".exam-confirm-ok").addEventListener("click", () => close(true));
+      back.querySelector(".exam-confirm-cancel").addEventListener("click", () => close(false));
+      back.addEventListener("click", (e) => { if (e.target === back) close(false); });
+      document.body.appendChild(back);
+    });
+  }
+
   async function init() {
     const params = new URLSearchParams(window.location.search);
     lessonId = params.get("lesson");
@@ -70,8 +94,16 @@
       last = m.index + m[0].length;
     }
     if (last < s.length) tokens.push({ keep: false, text: s.slice(last) });
-    return tokens.map(t => t.keep ? t.text
-      : t.text.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")).join("");
+    return tokens.map(t => {
+      if (t.keep) {
+        // Math tokens start with `$`; escape their angle brackets so the browser
+        // doesn't parse e.g. "$r<R$" as an HTML tag and swallow the rest. MathJax
+        // reads decoded textContent, so it still sees the real <, >. Real HTML
+        // tags/entities (also "kept") are left untouched.
+        return t.text[0] === "$" ? t.text.replaceAll("<","&lt;").replaceAll(">","&gt;") : t.text;
+      }
+      return t.text.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\\%","%");
+    }).join("");
   }
 
   function hasOrphanItem(text) {
@@ -106,6 +138,17 @@
     });
     s = s.replace(/\\begin\{center\}([\s\S]*?)\\end\{center\}/g,
       (m, body) => `<div style="text-align:center">${body}</div>`);
+    // Convert LaTeX tabular into an HTML table (MathJax can't render tabular and
+    // errors with "unknown environment"). Runs after HTML-escaping, so column
+    // separators are already "&amp;". Cell contents keep their $…$ math for MathJax.
+    s = s.replace(/\\begin\{tabular\}\{[^}]*\}([\s\S]*?)\\end\{tabular\}/g, (m, body) => {
+      const rows = body.split(/\\\\/).map(r => r.replace(/\\hline/g, "").trim()).filter(Boolean);
+      const trs = rows.map(r => {
+        const cells = r.split(/&amp;|&/).map(c => c.trim());
+        return "<tr>" + cells.map(c => `<td style="border:1px solid #ccc;padding:4px 12px">${c}</td>`).join("") + "</tr>";
+      }).join("");
+      return `<table style="margin:0.5rem auto;border-collapse:collapse">${trs}</table>`;
+    });
     s = s.replace(/\\begin\{enumerate\}(?:\s*\[([^\]]*)\])?([\s\S]*?)\\end\{enumerate\}/g,
       (m, opts, body) => {
         let type = "1";
@@ -123,8 +166,13 @@
       return `<ul>${items}</ul>`;
     });
     s = s.replace(/\\begin\{anum\}([\s\S]*?)\\end\{anum\}/g, (m, body) => {
+      // Honor \addtocounter{enumi}{N} so a list that continues after a figure
+      // resumes its lettering (e.g. d, e, f) instead of restarting at a.
+      let start = 1;
+      body = body.replace(/\\addtocounter\{enumi\}\{(\d+)\}/g, (mm, n) => { start += parseInt(n, 10); return ""; });
       const items = body.split(/\\item\s+/).map(x=>x.trim()).filter(Boolean).map(x=>`<li>${x}</li>`).join("");
-      return `<ol type="a" class="anum">${items}</ol>`;
+      const startAttr = start > 1 ? ` start="${start}"` : "";
+      return `<ol type="a" class="anum"${startAttr}>${items}</ol>`;
     });
 
     // Text-mode LaTeX commands that were not pre-processed in the JSON.
@@ -212,13 +260,15 @@
       </div>`);
 
     STAGE().innerHTML = html.join("");
-    document.getElementById("exit-btn").addEventListener("click", () => {
-      if (!confirm("Exit the mock? Your timer will reset and your attempt will be discarded.")) return;
+    document.getElementById("exit-btn").addEventListener("click", async () => {
+      const ok = await customConfirm("Exit the mock?", "Your timer will reset and your attempt will be discarded.");
+      if (!ok) return;
       clearStored();
       window.location.href = "/courses/usapho/";
     });
-    document.getElementById("finish-btn").addEventListener("click", () => {
-      if (!confirm("Finish the mock now? Solutions will be revealed.")) return;
+    document.getElementById("finish-btn").addEventListener("click", async () => {
+      const ok = await customConfirm("Finish the mock now?", "Solutions will be revealed.");
+      if (!ok) return;
       finalize();
     });
 
@@ -282,8 +332,9 @@
     }
 
     STAGE().innerHTML = html.join("");
-    document.getElementById("retake-btn-top").addEventListener("click", () => {
-      if (!confirm("Retake the mock? Your view of the solutions will be hidden again.")) return;
+    document.getElementById("retake-btn-top").addEventListener("click", async () => {
+      const ok = await customConfirm("Retake the mock?", "Your view of the solutions will be hidden again.");
+      if (!ok) return;
       clearStored();
       state = null;
       renderRules();

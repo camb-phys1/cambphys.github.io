@@ -39,7 +39,7 @@
     "problem_tag": null,
     "problem": "A 1.65-kg mass stretches a vertical spring 0.215 m. If the spring is stretched an additional 0.130 m and released, how long does it take to reach the (new) equilibrium position again?",
     "problem_images": [],
-    "solution": "The force exerted by the $1.65 \\, \\si{\\kilo\\gram}$ mass when the spring is stretched by $0.215 \\, \\si{\\meter}$ is $F = mg =  = 16.17 \\, \\si{\\newton}$. So, $k \\approx \\frac{16.17 \\, \\si{\\newton}}{0.215 \\, \\si{\\meter}} \\approx 75.14 \\, \\si{\\newton\\per\\meter}$. The period of oscillation is $T = 2\\pi \\sqrt{\\frac{m}{k}} = 2\\pi \\sqrt{\\frac{1.65}{75.14}} \\approx 0.931 \\, \\si{\\second}$. It takes a quarter of the period to reach the new equilibrium position, so the time we're looking at is $t=T/4=0.233\\, \\unit{s}$.",
+    "solution": "We first find the spring constant $k$ using Hooke's Law: $F = kx$. The force exerted by the $1.65 \\, \\unit{kg}$ mass when the spring is stretched by $0.215 \\, \\unit{m}$ is $F = mg = (1.65)(9.8) = 16.17 \\, \\unit{N}$. So, $16.17 \\, \\unit{N} = k \\times 0.215 \\, \\unit{m}$, giving $k \\approx \\frac{16.17 \\, \\unit{N}}{0.215 \\, \\unit{m}} \\approx 75.14 \\, \\unit{N/m}$. The period of oscillation is $T = 2\\pi \\sqrt{\\frac{m}{k}} = 2\\pi \\sqrt{\\frac{1.65}{75.14}} \\approx 0.931 \\, \\unit{s}$. It takes a quarter of the period to reach the new equilibrium position, so the time we're looking at is $t=T/4=0.233\\, \\unit{s}$.",
     "solution_images": [],
     "solution_type": "sol"
   },

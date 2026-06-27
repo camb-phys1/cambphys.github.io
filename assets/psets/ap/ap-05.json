@@ -74,17 +74,6 @@
     "section": "Problem Set",
     "subsection": "Exercises",
     "problem_tag": null,
-    "problem": "A pilot performs an evasive maneuver by diving vertically at 270 m/s. If he can withstand an acceleration of 8.0 g’s without blacking out, at what altitude must he begin\nto pull his plane out of the dive to avoid crashing into the sea?",
-    "problem_images": [],
-    "solution": "This problem is ill-defined, ignore it.",
-    "solution_images": [],
-    "solution_type": "sol"
-  },
-  {
-    "problem_set": "AP1_CircularMotion Sols",
-    "section": "Problem Set",
-    "subsection": "Exercises",
-    "problem_tag": null,
     "problem": "A 975-kg sports car (including driver) crosses the rounded top of a hill (radius = $88.0$ m) at $18.0\\,\\unit{m/s}$. Determine (a) the normal force exerted by the road on the car, (b) the normal force exerted by the car on the 62.0-kg driver, and (c) the car speed at which the normal force on the driver equals zero.",
     "problem_images": [],
     "solution": "\\begin{anum}\n\\item We have by force balance,\n    $$mg - N = \\frac{mv^2}{r} \\implies N = mg - \\frac{mv^2}{r} = 5970\\,\\unit N.$$\n    \\item We have by force balance,\n    $$mg - N = \\frac{mv^2}{r} \\implies N = mg - \\frac{mv^2}{r} = 380\\,\\unit N.$$\n    \\item We need $mg = mv^2/r \\implies v = \\sqrt{rg} = 40\\,\\unit{m/s}.$\n\\end{anum}",

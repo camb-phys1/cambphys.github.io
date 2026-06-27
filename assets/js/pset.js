@@ -375,11 +375,20 @@
     if (last < s.length) tokens.push({ keep: false, text: s.slice(last) });
 
     return tokens.map(t => {
-      if (t.keep) return t.text;
+      if (t.keep) {
+        // Math tokens start with `$`; escape their angle brackets so the browser
+        // doesn't parse e.g. "$r<R$" as an HTML tag and swallow the rest. MathJax
+        // reads decoded textContent, so it still sees the real <, >. Real HTML
+        // tags/entities (also "kept") are left untouched.
+        return t.text[0] === "$"
+          ? t.text.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+          : t.text;
+      }
       return t.text
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;");
+        .replaceAll(">", "&gt;")
+        .replaceAll("\\%", "%");   // LaTeX escaped percent in text mode
     }).join("");
   }
 

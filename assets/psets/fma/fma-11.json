@@ -121,7 +121,7 @@
     "problem_tag": null,
     "problem": "Prove that for an object in static equilibrium, torque around any origin being zero implies that there's zero torque about any other origin.",
     "problem_images": [],
-    "solution": "Suppose that we have a collection of forces $\\mathbf F_i$ being applied at radii $\\mathbf r_i$ from some origin. Then, we have that\n    $$\\tau = \\sum_i \\mathbf r_i \\times \\mathbf F_i = 0.$$\n    Then, about some other origin, $\\mathbf r_0$, we have\n    $$\\tau_{r_0} = \\sum_i (\\mathbf r_i -\\mathbf r_0) \\times \\mathbf F_i = \\sum_i \\mathbf r_i \\times \\mathbf F_i -\\mathf r_0\\sum_i \\mathbf F_i.$$\n    The first term is just $\\tau = 0$ and since we are in static equilibrium the net force is 0, so $\\sum_i \\mathbf F_i = 0$, so\n    $$\\tau_{r_0} = 0 + 0 = 0,$$\n    as desired.",
+    "solution": "Suppose that we have a collection of forces $\\mathbf F_i$ being applied at radii $\\mathbf r_i$ from some origin. Then, we have that\n    $$\\tau = \\sum_i \\mathbf r_i \\times \\mathbf F_i = 0.$$\n    Then, about some other origin, $\\mathbf r_0$, we have\n    $$\\tau_{r_0} = \\sum_i (\\mathbf r_i -\\mathbf r_0) \\times \\mathbf F_i = \\sum_i \\mathbf r_i \\times \\mathbf F_i -\\mathbf r_0\\sum_i \\mathbf F_i.$$\n    The first term is just $\\tau = 0$ and since we are in static equilibrium the net force is 0, so $\\sum_i \\mathbf F_i = 0$, so\n    $$\\tau_{r_0} = 0 + 0 = 0,$$\n    as desired.",
     "solution_images": [],
     "solution_type": "sol"
   },
@@ -135,19 +135,6 @@
       "Statics Sols/static_chain.png"
     ],
     "solution": "If we move the chain clockwise by $dx$, then it is equivalent to moving a bit of the chain from the left side and attaching it on the right side. The mass of such a piece is $\\rho dx$. Then, the change in height is $dx \\sin \\theta_l + dx \\sin \\theta_r$ where $\\theta_l$ and $\\theta_r$ are the angles the left and right sides make with the horizontal. Thus, the change in energy is\n    $$dU = (\\rho dx)dx(\\sin \\theta_l + \\sin \\theta_r)g \\sim (dx)^2,$$\n    so the change in energy is order $(dx)^2$, and it is in static equilibrium.",
-    "solution_images": [],
-    "solution_type": "sol"
-  },
-  {
-    "problem_set": "Statics Sols",
-    "section": "Problem Set",
-    "subsection": "Exercises",
-    "problem_tag": null,
-    "problem": "%     A rope of mass density $\\lambda$ is fixed by its ends on two supports of height $h$, such that the middle of the rope <em>almost</em> touches the ground. Find the tension at the following points on the rope:\n%     \\begin{anum}\n%     \\item the ends of the rope\n%     \\item the middle of the rope\n%     \\item a point on the rope that is $\\frac{h}{2}$ above the ground.\n%     \\end{anum}\n%     \\begin{center}\n%         \\includegraphics[width = 0.6\\textwidth]{catenary.png}\n%     \\end{center}\n%",
-    "problem_images": [
-      "Statics Sols/catenary.png"
-    ],
-    "solution": "\\begin{anum}\n    \\item We use the trick of taking torque about any point, and choose the contact point on the ground which cancels both gravity and friction. Thus, we get that the string's line must intersect the contact point, so $\\theta = \\arccos (r/R)$ by tangent line geometry.\n    \\item The horizontal component of the tension force is\n    $$T \\cos \\theta,$$\n    so we need $T\\cos \\theta \\le \\mu N $. The normal force is\n    $$N = Mg - T\\sin \\theta ,$$\n    so our inequality is\n    $$T\\cos \\theta \\le \\mu Mg - \\mu T \\sin \\theta \\implies T \\le \\frac{\\mu Mg}{\\cos \\theta + \\mu \\sin \\theta}.$$\n    \\item Using part (b), we want to maximize $\\cos \\theta + \\mu \\sin \\theta$. But this is actually the same maximization as in idea 1.4! The angle $\\theta = \\arctan \\mu$ to minimize $T$, pulling perpendicular to the combined force. Thus,\n    $$r/R = \\cos(\\arctan \\mu) = \\frac{1}{\\sqrt{1 + \\mu^2}},$$\n    giving us $\\boxed{r = R/\\sqrt{1+\\mu^2}}.$\n    \\end{anum}",
     "solution_images": [],
     "solution_type": "sol"
   },

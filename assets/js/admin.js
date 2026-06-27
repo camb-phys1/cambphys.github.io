@@ -3,6 +3,77 @@
 (function () {
   const sb = window.cambphysSupabase;
 
+  // Custom modal dialogs (replace native confirm/alert so the "website says"
+  // prefix doesn't appear). Self-contained with inline styles — no external CSS.
+  function buildModal(title, detail, buttons) {
+    const back = document.createElement("div");
+    back.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,0.5);" +
+      "display:flex;align-items:center;justify-content:center;z-index:2000;padding:1rem;";
+    const box = document.createElement("div");
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.style.cssText = "background:#fff;border-radius:8px;padding:1.5rem 1.75rem 1.25rem;" +
+      "max-width:440px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,0.2);";
+    const h = document.createElement("h3");
+    h.style.cssText = "margin:0 0 .5rem;font-size:1.15rem;";
+    h.textContent = title;
+    box.appendChild(h);
+    if (detail) {
+      const p = document.createElement("p");
+      p.style.cssText = "margin:0 0 1.25rem;color:#555;font-size:.95rem;line-height:1.5;";
+      p.textContent = detail;
+      box.appendChild(p);
+    }
+    const actions = document.createElement("div");
+    actions.style.cssText = "display:flex;gap:.5rem;justify-content:flex-end;";
+    box.appendChild(actions);
+    back.appendChild(box);
+    return { back, actions };
+  }
+
+  function mkBtn(label, kind) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = label;
+    const bg = kind === "danger" ? "#b00020" : kind === "primary" ? "#2f5d8c" : "#e5e7eb";
+    const fg = kind === "neutral" ? "#333" : "#fff";
+    b.style.cssText = "padding:.5rem 1rem;border:0;border-radius:4px;font-size:.95rem;" +
+      `cursor:pointer;background:${bg};color:${fg};`;
+    return b;
+  }
+
+  function customConfirm(title, detail, opts) {
+    opts = opts || {};
+    return new Promise(resolve => {
+      document.querySelectorAll(".admin-modal-backdrop").forEach(n => n.remove());
+      const { back, actions } = buildModal(title, detail);
+      back.className = "admin-modal-backdrop";
+      const cancel = mkBtn("Cancel", "neutral");
+      const ok = mkBtn(opts.okLabel || "OK", opts.danger ? "danger" : "primary");
+      actions.appendChild(cancel);
+      actions.appendChild(ok);
+      const close = (v) => { back.remove(); resolve(v); };
+      ok.addEventListener("click", () => close(true));
+      cancel.addEventListener("click", () => close(false));
+      back.addEventListener("click", (e) => { if (e.target === back) close(false); });
+      document.body.appendChild(back);
+    });
+  }
+
+  function customAlert(title, detail) {
+    return new Promise(resolve => {
+      document.querySelectorAll(".admin-modal-backdrop").forEach(n => n.remove());
+      const { back, actions } = buildModal(title, detail);
+      back.className = "admin-modal-backdrop";
+      const ok = mkBtn("OK", "primary");
+      actions.appendChild(ok);
+      const close = () => { back.remove(); resolve(); };
+      ok.addEventListener("click", close);
+      back.addEventListener("click", (e) => { if (e.target === back) close(); });
+      document.body.appendChild(back);
+    });
+  }
+
   async function fetchRequests(statusFilter) {
     let q = sb.from("upgrade_requests")
       .select("*")
@@ -153,20 +224,20 @@
     document.querySelectorAll(".btn-approve").forEach(btn => {
       btn.addEventListener("click", async () => {
         const row = byId[btn.dataset.id];
-        if (!confirm(`Approve ${row.student_first_name} ${row.student_last_name} for ${row.course_id.toUpperCase()}?`)) return;
+        if (!await customConfirm("Approve request?", `Approve ${row.student_first_name} ${row.student_last_name} for ${row.course_id.toUpperCase()}?`, { okLabel: "Approve" })) return;
         btn.disabled = true; btn.textContent = "Approving...";
         const { error } = await approve(row);
-        if (error) { alert("Approve failed: " + error.message); btn.disabled = false; btn.textContent = "Approve & Upgrade"; return; }
+        if (error) { await customAlert("Approve failed", error.message); btn.disabled = false; btn.textContent = "Approve & Upgrade"; return; }
         await refresh();
       });
     });
     document.querySelectorAll(".btn-reject").forEach(btn => {
       btn.addEventListener("click", async () => {
         const row = byId[btn.dataset.id];
-        if (!confirm(`Reject this request from ${row.student_first_name} ${row.student_last_name}?`)) return;
+        if (!await customConfirm("Reject request?", `Reject this request from ${row.student_first_name} ${row.student_last_name}?`, { okLabel: "Reject", danger: true })) return;
         btn.disabled = true; btn.textContent = "Rejecting...";
         const { error } = await reject(row);
-        if (error) { alert("Reject failed: " + error.message); btn.disabled = false; btn.textContent = "Reject"; return; }
+        if (error) { await customAlert("Reject failed", error.message); btn.disabled = false; btn.textContent = "Reject"; return; }
         await refresh();
       });
     });
@@ -177,20 +248,20 @@
         const warning = wasApproved
           ? `Undo approval for ${row.student_first_name} ${row.student_last_name}? This will revoke their access to ${row.course_id.toUpperCase()}.`
           : `Undo rejection for ${row.student_first_name} ${row.student_last_name}? It will go back to Pending.`;
-        if (!confirm(warning)) return;
+        if (!await customConfirm("Undo — back to Pending?", warning, { okLabel: "Undo" })) return;
         btn.disabled = true; btn.textContent = "Undoing...";
         const { error } = await resetToPending(row);
-        if (error) { alert("Undo failed: " + error.message); btn.disabled = false; btn.textContent = "↶ Undo — back to Pending"; return; }
+        if (error) { await customAlert("Undo failed", error.message); btn.disabled = false; btn.textContent = "↶ Undo — back to Pending"; return; }
         await refresh();
       });
     });
     document.querySelectorAll(".btn-delete").forEach(btn => {
       btn.addEventListener("click", async () => {
         const row = byId[btn.dataset.id];
-        if (!confirm(`Permanently delete request from ${row.student_first_name} ${row.student_last_name}? This removes the row AND the payment screenshot. Cannot be undone.`)) return;
+        if (!await customConfirm("Permanently delete request?", `Delete the request from ${row.student_first_name} ${row.student_last_name}? This removes the row AND the payment screenshot. Cannot be undone.`, { okLabel: "Delete", danger: true })) return;
         btn.disabled = true; btn.textContent = "Deleting...";
         const { error } = await deleteRequest(row);
-        if (error) { alert("Delete failed: " + error.message); btn.disabled = false; btn.textContent = "Delete"; return; }
+        if (error) { await customAlert("Delete failed", error.message); btn.disabled = false; btn.textContent = "Delete"; return; }
         await refresh();
       });
     });

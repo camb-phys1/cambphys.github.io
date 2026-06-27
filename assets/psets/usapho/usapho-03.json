@@ -169,7 +169,7 @@
     "problem_tag": null,
     "problem": "<a href=\"https://ipho.olimpicos.net/pdf/IPhO_2004_Q1.pdf\" target=\"_blank\" rel=\"noopener\">IPhO 2004, problem 1</a>.",
     "problem_images": [],
-    "solution": null,
+    "solution": "<p><a href=\"https://ipho.olimpicos.net/pdf/IPhO_2004_S1.pdf\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": null
   },
@@ -180,7 +180,7 @@
     "problem_tag": null,
     "problem": "<a href=\"https://ipho.olimpicos.net/pdf/IPhO_1993_Q1.pdf\" target=\"_blank\" rel=\"noopener\">IPhO 1993, problem 1</a>.",
     "problem_images": [],
-    "solution": null,
+    "solution": "<p><a href=\"https://ipho.olimpicos.net/pdf/IPhO_1993_S1.pdf\" target=\"_blank\" rel=\"noopener\">View official solution ↗</a></p>",
     "solution_images": [],
     "solution_type": null
   }

@@ -1,25 +1,25 @@
 <p><div class="note-box" style="border-left:4px solid #2f5d8c;background:#e3edf6;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#2f5d8c;margin-bottom:.3em;">Idea: Analogs</div><div>Rotational kinematics variables are analogous to translational ones:
     \begin{align*}
-        \Delta \theta &\leftrightarrow \Delta x <br>
-        \vec \omega &\leftrightarrow \Delta \vec v <br>
+        \Delta \theta &\leftrightarrow \Delta x \\
+        \vec \omega &\leftrightarrow \Delta \vec v \\
         \vec \alpha &\leftrightarrow \vec a.
     \end{align*}
     This gives us familiar looking kinematics equations:
     \begin{align*}
-        \Delta \theta &= \omega_0t + \frac 12 \alpha t^2 <br>
+        \Delta \theta &= \omega_0t + \frac 12 \alpha t^2 \\
         \omega_f^2 &= \omega_0^2 + 2\alpha \Delta \theta.
     \end{align*}</div></div></p><p><div class="note-box" style="border-left:4px solid #2f5d8c;background:#e3edf6;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#2f5d8c;margin-bottom:.3em;">Idea: Linear Relations</div><div>We also have relations between linear quantities and angular quantities. The simplest is the definition of an angle, 
     $$\theta = \frac{s}{R},$$
     where $s$ is the arc length. Then from there we can derive
     \begin{align*}
-        v = \omega R,<br>
+        v = \omega R,\\
         a = \alpha R.
     \end{align*}</div></div></p><p>A particular case where this is helpful is when an object is <em>rolling without slipping</em>. This means the objects contact point with the ground has 0 instantaneous velocity, which makes it the center of rotation! 
 <div style="text-align:center">
-    <img src="<img src="/assets/psets/ap/ap-12/rooll_no sliipp.png" alt="" onerror="this.style.display='none'" style="max-width:100%;height:auto;display:block;margin:.5em auto;">" alt="" style="max-width:100%;height:auto;display:block;margin:.5em auto;">
+    <img src="/assets/psets/ap/ap-12/rooll_no sliipp.png" alt="" onerror="this.style.display='none'" style="max-width:100%;height:auto;display:block;margin:.5em auto;">
 </div>
 This let's us write down $$v = \omega r \implies a = \alpha r.$$
-Further, because the bottom is the instantaneous center, this let's us write $v_{\text{top}} = \omega \cdot (2r) = 2\omega r = 2v.$</p><p>\subsection{Intro to Dynamics}</p><p>To be covered in more depth in the following weeks, but here's just a taste.</p><p><div class="note-box" style="border-left:4px solid #1b6b34;background:#e6f4ea;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#1b6b34;margin-bottom:.3em;">Definition: Torque \& Moment of Inertia</div><div>The rotational analog of $F=ma$ is torque, $$\tau = I\alpha = \mathbf r \times \mathbf F,$$ where $I$ is the moment of inertia, which is defined as
+Further, because the bottom is the instantaneous center, this let's us write $v_{\text{top}} = \omega \cdot (2r) = 2\omega r = 2v.$</p><h3>Intro to Dynamics</h3><p>To be covered in more depth in the following weeks, but here's just a taste.</p><p><div class="note-box" style="border-left:4px solid #1b6b34;background:#e6f4ea;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#1b6b34;margin-bottom:.3em;">Definition: Torque &amp; Moment of Inertia</div><div>The rotational analog of $F=ma$ is torque, $$\tau = I\alpha = \mathbf r \times \mathbf F,$$ where $I$ is the moment of inertia, which is defined as
     $$I = \sum m_i r_i^2.$$</div></div>
 <div class="note-box" style="border-left:4px solid #7c1fa2;background:#f3e5f7;padding:.7em 1em;margin:.9em 0;border-radius:4px;"><div style="font-weight:700;color:#7c1fa2;margin-bottom:.3em;">Theorem: MOI theorems</div><div>The parallel axis theorem tells us $$I = I_{\text{cm}} + Md^2,$$where $d$ is the distance of the new axis from the COM. The perpendicular axis theorem tells us that for a flat 2D object, the moment of inertia about the perpendicular axis is equal to the sum of two in-plane axes. That is, if the object lies in the $x$-$y$ plane in any orientation,
     $$I_z = I_x + I_y.$$</div></div></p>

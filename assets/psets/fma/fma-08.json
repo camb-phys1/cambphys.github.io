@@ -226,7 +226,7 @@
     "problem_tag": null,
     "problem": "Find the moment of inertia of a uniform square about an axis perpendicular to its center. There are two ways to do this: integration and splitting the square into four smaller squares and using scaling laws + parallel axis theorem. Now, with no additional work, find the moment of inertia of a uniform square through one of its diagonals.",
     "problem_images": [],
-    "solution": "We'll show the slick method. By scaling law, the moment of inertia of a smaller square is $$I_s = \\frac{1}{4}\\left(\\frac 12\\right)^2 I = I/16.$$ And by parallel axis theorem, about a corner the moment of inertia of a small square is $$I_{s,v} = I/16 + \\frac{m}{4} \\left(\\frac{a}{2\\sqrt 2}\\right)^2 = \\frac{I}{16} + \\frac{ma^2}{32}.$$\n    Thus,\n    $$I = 4I_{s,v} = \\frac{I}{4} + \\frac{ma^2}{8} \\implies I = \\frac{ma^2}{6}.$$By the perpendicular axis theorem, for one of its diagonals, we have $$I = I_d + I_{d'} = 2I_d \\imples I_d = \\frac{ma^2}{12}.$$",
+    "solution": "We'll show the slick method. By scaling law, the moment of inertia of a smaller square is $$I_s = \\frac{1}{4}\\left(\\frac 12\\right)^2 I = I/16.$$ And by parallel axis theorem, about a corner the moment of inertia of a small square is $$I_{s,v} = I/16 + \\frac{m}{4} \\left(\\frac{a}{2\\sqrt 2}\\right)^2 = \\frac{I}{16} + \\frac{ma^2}{32}.$$\n    Thus,\n    $$I = 4I_{s,v} = \\frac{I}{4} + \\frac{ma^2}{8} \\implies I = \\frac{ma^2}{6}.$$By the perpendicular axis theorem, for one of its diagonals, we have $$I = I_d + I_{d'} = 2I_d \\implies I_d = \\frac{ma^2}{12}.$$",
     "solution_images": [],
     "solution_type": "sol"
   },
