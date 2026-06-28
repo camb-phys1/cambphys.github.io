@@ -109,7 +109,9 @@
 
     // Math typeset
     if (window.MathJax && window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise([stage()]).catch(() => {});
+      window.MathJax.typesetPromise([stage()])
+        .then(() => window.makeWideMathScrollable && window.makeWideMathScrollable(stage()))
+        .catch(() => {});
     }
 
     // Refresh the jump-drawer list (so bookmarks + current marker stay accurate)
@@ -231,7 +233,9 @@
       sol.style.display = show ? "block" : "none";
       btn.textContent = show ? "Hide Solution" : "Reveal Solution";
       if (show && window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([sol]).catch(() => {});
+        window.MathJax.typesetPromise([sol])
+          .then(() => window.makeWideMathScrollable && window.makeWideMathScrollable(sol))
+          .catch(() => {});
       }
     });
   }

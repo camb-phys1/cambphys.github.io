@@ -114,7 +114,9 @@
 
   function typeset(el) {
     if (window.MathJax && window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise([el]).catch(()=>{});
+      window.MathJax.typesetPromise([el])
+        .then(() => window.makeWideMathScrollable && window.makeWideMathScrollable(el))
+        .catch(()=>{});
     }
   }
 

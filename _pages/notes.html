@@ -87,7 +87,10 @@ permalink: /notes/
       const html = await body.text();
       document.getElementById("notes-body").innerHTML = html;
       if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([document.getElementById("notes-body")]).catch(()=>{});
+        const nb = document.getElementById("notes-body");
+        window.MathJax.typesetPromise([nb])
+          .then(() => window.makeWideMathScrollable && window.makeWideMathScrollable(nb))
+          .catch(()=>{});
       }
     } catch (e) {
       console.error(e);

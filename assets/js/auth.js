@@ -108,3 +108,46 @@
     requireAuth,
   };
 })();
+
+// ---------------------------------------------------------------------------
+// makeWideMathScrollable(root): a long *inline* equation ($…$) can't wrap, so
+// it would spill out of the column and get clipped. Display math ($$…$$) and
+// tables already scroll via CSS; this handles inline math by wrapping only the
+// equations that actually overflow in a .math-scroll box, giving just that one
+// its own horizontal scrollbar (on its own line) while the surrounding text
+// stays put. Short inline math is left untouched (no baseline change).
+// Call it after MathJax's typesetPromise resolves.
+// ---------------------------------------------------------------------------
+(function () {
+  if (window.makeWideMathScrollable) return;
+
+  function wrapWideMath(root) {
+    if (!root || !root.querySelectorAll) return;
+    const maths = root.querySelectorAll('mjx-container:not([display="true"])');
+    maths.forEach((m) => {
+      const parent = m.parentElement;
+      if (!parent || parent.classList.contains("math-scroll")) return; // already wrapped
+      const host = m.closest("li, p, .pset-solution, .pset-problem, .result-question, .exam-question, #notes-body");
+      const avail = host ? host.clientWidth : (parent.clientWidth || 0);
+      const width = m.getBoundingClientRect().width;
+      if (avail && width > avail + 1) {
+        const wrap = document.createElement("span");
+        wrap.className = "math-scroll";
+        parent.insertBefore(wrap, m);
+        wrap.appendChild(m);
+      }
+    });
+  }
+
+  window.makeWideMathScrollable = wrapWideMath;
+
+  // Re-check on resize/orientation change (debounced). Narrowing the window can
+  // make a previously-fitting equation overflow; this catches those. (Already
+  // wrapped equations stay wrapped — harmless, since .math-scroll only shows a
+  // scrollbar when it still overflows.)
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(() => wrapWideMath(document.body), 200);
+  });
+})();

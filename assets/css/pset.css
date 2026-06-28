@@ -11,6 +11,13 @@ mjx-container[display="true"] {
 .result-question table, #notes-body table {
   display: block; max-width: 100%; overflow-x: auto;
 }
+/* A single long *inline* equation ($…$) can't wrap. JS (makeWideMathScrollable)
+   wraps any that overflow the column in this element, giving just that equation
+   its own horizontal scrollbar — the text around it stays put. */
+.math-scroll {
+  display: block; max-width: 100%;
+  overflow-x: auto; overflow-y: hidden;
+}
 
 /* Problem-set slideshow */
 .pset-wrap { max-width: 820px; margin: 1.5rem auto 3rem; padding: 0 1.25rem; }

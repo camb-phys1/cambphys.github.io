@@ -10,6 +10,12 @@ mjx-container[display="true"] {
 .result-question table {
   display: block; max-width: 100%; overflow-x: auto;
 }
+/* Long inline equations get their own horizontal scrollbar (applied by JS to
+   only the equations that actually overflow — see makeWideMathScrollable). */
+.math-scroll {
+  display: block; max-width: 100%;
+  overflow-x: auto; overflow-y: hidden;
+}
 
 /* Practice F=ma exam */
 .exam-wrap { max-width: 820px; margin: 1.5rem auto 4rem; padding: 0 1.25rem; }

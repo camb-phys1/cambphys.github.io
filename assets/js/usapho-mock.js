@@ -79,7 +79,7 @@
 
   function persist()    { try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(_){} }
   function clearStored(){ try { sessionStorage.removeItem(STORAGE_KEY); } catch(_){} }
-  function typeset(el)  { if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([el]).catch(()=>{}); }
+  function typeset(el)  { if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([el]).then(()=>window.makeWideMathScrollable&&window.makeWideMathScrollable(el)).catch(()=>{}); }
 
   // ---- LaTeX → HTML rendering (same logic as pset.js) --------------------
   function imgBase() { return `/assets/psets/usapho/${lessonId}`; }
