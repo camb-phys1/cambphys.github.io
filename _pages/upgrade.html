@@ -116,7 +116,7 @@ permalink: /upgrade/
     </fieldset>
 
     <div class="payment-info">
-      Payment for all 16 lessons in the course is <strong>$640</strong>.<br>
+      Payment for all 16 lessons in the course is <strong id="course-price">$640</strong>.<br>
       Payment options: <strong>Zelle: cambphys@gmail.com</strong> (name listed should be <strong>Baoyun Shen</strong>)
     </div>
 
@@ -153,6 +153,10 @@ permalink: /upgrade/
     const titles = { ap: "AP Course Series", fma: "F=ma Course Series", usapho: "USAPhO Course Series" };
     document.getElementById("course-name").textContent = titles[courseId];
     document.getElementById("course_id").value = courseId;
+
+    // Price depends on which course is being upgraded.
+    const prices = { ap: "$640", fma: "$800", usapho: "$1280" };
+    document.getElementById("course-price").textContent = prices[courseId] || "$640";
 
     // Prefill student email with logged-in user's email
     document.getElementById("student_email").value = user.email;

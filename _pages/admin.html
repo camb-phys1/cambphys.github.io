@@ -48,6 +48,27 @@ sitemap: false
   .muted { color: #777; font-style: italic; }
   #unauthorized { display: none; padding: 2rem; background: #fde7e9;
     border-radius: 6px; color: #b00020; }
+  .announce-editor { border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem;
+    margin-bottom: 1.75rem; background: #fff; }
+  .announce-editor h2 { margin: 0 0 .25rem; font-size: 1.15rem; }
+  .announce-help { margin: 0 0 1rem; color: #666; font-size: .9rem; }
+  .announce-row { padding: .9rem 0; border-top: 1px solid #eee; }
+  .announce-row:first-child { border-top: 0; padding-top: 0; }
+  .announce-row-label { display: block; font-weight: 600; font-size: .9rem;
+    margin-bottom: .35rem; }
+  .announce-editor textarea { width: 100%; box-sizing: border-box; padding: .6rem .7rem;
+    border: 1px solid #ccc; border-radius: 4px; font: inherit; font-size: 1rem; resize: vertical; }
+  .announce-actions { display: flex; gap: .5rem; align-items: center; margin-top: .5rem; }
+  .announce-save-btn { background: #1b6b34; color: #fff; border: 0; border-radius: 4px;
+    padding: .45rem .9rem; font-weight: 600; cursor: pointer; }
+  .announce-save-btn:hover:not(:disabled) { background: #155227; }
+  .announce-save-btn:disabled { background: #999; cursor: not-allowed; }
+  .announce-clear-btn { background: #e5e7eb; color: #333; border: 0; border-radius: 4px;
+    padding: .45rem .9rem; font-weight: 600; cursor: pointer; }
+  .announce-clear-btn:hover { background: #d1d5db; }
+  .announce-msg { font-size: .9rem; }
+  .announce-msg.ok { color: #1b6b34; }
+  .announce-msg.error { color: #b00020; }
 </style>
 
 <div class="admin-wrap">
@@ -58,6 +79,13 @@ sitemap: false
   </div>
 
   <div id="admin-ui" style="display:none;">
+    <section class="announce-editor">
+      <h2>Site announcements</h2>
+      <p class="announce-help">Each box shows as a banner on the students' "My Courses" page for that audience only. Leave a box blank (or click Clear) to hide it. Save each box separately.</p>
+      <div id="announce-editors"></div>
+    </section>
+
+    <h2 style="margin:0 0 .75rem;font-size:1.15rem;">Upgrade requests</h2>
     <div class="filter-bar">
       <label><input type="radio" name="filter" value="pending" checked> Pending</label>
       <label><input type="radio" name="filter" value="approved"> Approved</label>
@@ -92,6 +120,61 @@ sitemap: false
       );
       document.getElementById("refresh-btn").addEventListener("click",
         () => window.cambphysAdmin.refresh());
+
+      // ---- Announcement editors (one per audience) ----
+      const AUDIENCES = [
+        { key: "everyone",     label: "Everyone (all signed-in users)" },
+        { key: "enrolled_any", label: "Anyone enrolled (paid for ≥ 1 course)" },
+        { key: "ap",           label: "AP students (paid)" },
+        { key: "fma",          label: "F=ma students (paid)" },
+        { key: "usapho",       label: "USAPhO students (paid)" },
+      ];
+      const current = {};
+      try {
+        const { data } = await window.cambphysSupabase
+          .from("announcements").select("audience, message");
+        (data || []).forEach(r => { current[r.audience] = r.message || ""; });
+      } catch (e) { /* table may not exist yet */ }
+
+      async function saveAnnouncement(audience, text, msgEl, btn) {
+        msgEl.className = "announce-msg"; msgEl.textContent = "Saving…";
+        btn.disabled = true;
+        const { error } = await window.cambphysSupabase
+          .from("announcements")
+          .upsert({ audience, message: text, updated_at: new Date().toISOString() });
+        btn.disabled = false;
+        if (error) {
+          msgEl.className = "announce-msg error";
+          msgEl.textContent = "Could not save: " + error.message;
+        } else {
+          msgEl.className = "announce-msg ok";
+          msgEl.textContent = text.trim() ? "Saved — banner is live." : "Saved — banner hidden.";
+        }
+      }
+
+      const editorsWrap = document.getElementById("announce-editors");
+      AUDIENCES.forEach(({ key, label }) => {
+        const row = document.createElement("div");
+        row.className = "announce-row";
+        row.innerHTML =
+          '<label class="announce-row-label"></label>' +
+          '<textarea rows="3"></textarea>' +
+          '<div class="announce-actions">' +
+            '<button type="button" class="announce-save-btn">Save</button>' +
+            '<button type="button" class="announce-clear-btn">Clear</button>' +
+            '<span class="announce-msg"></span>' +
+          '</div>';
+        row.querySelector(".announce-row-label").textContent = label;
+        const ta = row.querySelector("textarea");
+        ta.value = current[key] || "";
+        const msgEl = row.querySelector(".announce-msg");
+        const saveBtn = row.querySelector(".announce-save-btn");
+        saveBtn.addEventListener("click", () => saveAnnouncement(key, ta.value, msgEl, saveBtn));
+        row.querySelector(".announce-clear-btn").addEventListener("click", () => {
+          ta.value = ""; saveAnnouncement(key, "", msgEl, saveBtn);
+        });
+        editorsWrap.appendChild(row);
+      });
     } catch (e) {
       console.error("admin init failed:", e);
       document.getElementById("unauthorized").innerHTML =

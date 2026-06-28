@@ -10,6 +10,8 @@ permalink: /courses/
   <h1>My Courses</h1>
   <p>Welcome back, <strong id="user-email">…</strong>.</p>
 
+  <div id="announcements"></div>
+
   <div class="course-grid">
     <a class="course-card" href="/courses/ap/">
       <h2>AP Course Series</h2>
@@ -72,6 +74,39 @@ permalink: /courses/
       document.getElementById("user-email").textContent = user.email;
       document.getElementById("report-email").value = user.email;
     }
+
+    // Announcement banners (admin-editable, audience-targeted via RLS).
+    // The DB only returns rows this user is allowed to see; we render every
+    // non-empty one in a fixed order.
+    try {
+      const order = ["everyone", "enrolled_any", "ap", "fma", "usapho"];
+      const labels = {
+        everyone: "📣 Announcement",
+        enrolled_any: "📣 For enrolled students",
+        ap: "📣 For AP students",
+        fma: "📣 For F=ma students",
+        usapho: "📣 For USAPhO students",
+      };
+      const { data } = await window.cambphysSupabase
+        .from("announcements").select("audience, message");
+      const byAudience = {};
+      (data || []).forEach(r => { byAudience[r.audience] = (r.message || "").trim(); });
+      const container = document.getElementById("announcements");
+      order.forEach(aud => {
+        const msg = byAudience[aud];
+        if (!msg) return;
+        const box = document.createElement("div");
+        box.className = "announcement-banner";
+        const label = document.createElement("span");
+        label.className = "announcement-label";
+        label.textContent = labels[aud];
+        const text = document.createElement("div");
+        text.className = "announcement-text";
+        text.textContent = msg;
+        box.appendChild(label); box.appendChild(text);
+        container.appendChild(box);
+      });
+    } catch (e) { /* announcements optional */ }
   })();
 
   // Report-an-error modal

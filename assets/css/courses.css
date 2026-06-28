@@ -9,6 +9,23 @@ body { background: #eaf2fb; }
 .courses-wrap { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
 .courses-wrap h1 { margin-top: 0; }
 
+/* Admin-editable announcement banner (hidden when empty). */
+.announcement-banner {
+  margin: 1.25rem 0 0;
+  padding: .85rem 1.1rem;
+  background: #fff7e6;
+  border: 1px solid #f0d28a;
+  border-left: 4px solid #e0a82e;
+  border-radius: 6px;
+}
+.announcement-banner[hidden] { display: none; }
+.announcement-label {
+  display: block; font-weight: 700; font-size: .8rem;
+  color: #8a6d00; text-transform: uppercase; letter-spacing: .03em;
+  margin-bottom: .25rem;
+}
+.announcement-text { color: #5b4a12; line-height: 1.5; white-space: pre-wrap; }
+
 /* Subtle "Report an error" link near the bottom of the landing page. */
 .report-link-row { margin-top: 3rem; text-align: right; }
 .report-link-row a {
