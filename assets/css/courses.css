@@ -154,6 +154,13 @@ body { background: #eaf2fb; }
 .lesson-body {
   padding: 0 1rem 1rem;
 }
+/* "Lecture Readings" box: external book links styled with an arrow, matching
+   the site's other outbound links. */
+.readings-book-list a {
+  display: block; margin: .4rem 0; color: #2f5d8c; text-decoration: none;
+}
+.readings-book-list a:hover { text-decoration: underline; }
+.readings-book-icon { height: 1.3em; width: auto; vertical-align: -0.25em; }
 .lesson-readings {
   margin-bottom: .75rem;
   font-size: .9rem;
@@ -198,3 +205,13 @@ body { background: #eaf2fb; }
 .cp-btn-primary:hover { background: #244a70; text-decoration: none; color: #fff; }
 .cp-btn-secondary { background: #e5e7eb; color: #333; }
 .cp-btn-secondary:hover { background: #d1d5db; }
+
+/* Phone view: show only the icon on lesson resource buttons so the text
+   doesn't squish the lesson title / wrap awkwardly. */
+@media (max-width: 600px) {
+  .lesson-body .resource .r-label { display: none; }
+  .lesson-body .resource {
+    flex: 0 0 auto; min-width: 0;
+    padding: .5rem .7rem; font-size: 1.1rem;
+  }
+}

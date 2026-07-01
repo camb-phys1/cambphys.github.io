@@ -132,16 +132,12 @@ author_profile: false
   max-width: 50%; /* Adjust as needed */
   position: relative;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  background: #f2f2f2; /* All boxes share the same gray (matches icon PNG bg) */
 }
 
 .box:hover {
   box-shadow: 0px 0px 14px rgba(0,0,0, 0.2);
 }
-
-/* "How it works" boxes: background matches the icon PNGs' light-gray
-   background so the icon squares blend in (look transparent). Adjust the
-   hex if it doesn't exactly match your PNG background. */
-.how-box { background: #f2f2f2; }
 
 .box-content {
     display: flex; /* Use Flexbox to align content */
@@ -510,12 +506,16 @@ author_profile: false
 
     </div>
 
+    <h2 class="centered-heading" style="margin-top: 3.5rem;">
+      How it Works
+    </h2>
+
     <div class="custom-row">
         <div class="box how-box">
           <div class="box-header">
             <h3 class="box-title">Sign up</h3>
             <div class="box-icon">
-            <img src="pictures/Sign up pic.png" alt="Sign up" class="box-icon">
+            <img src="pictures/Sign up pic.png" alt="Sign up" class="box-icon" style="width: 120px; height: 120px;">
           </div>
           </div>
           <p class="box-description" style="text-align: center;">Sign up for a free preview of one lesson for each of our three courses.</p>
@@ -525,7 +525,7 @@ author_profile: false
           <div class="box-header">
             <h3 class="box-title">Accelerate</h3>
             <div class="box-icon">
-            <img src="pictures/Accelerate pic.png" alt="Accelerate" class="box-icon">
+            <img src="pictures/Accelerate pic.png" alt="Accelerate" class="box-icon" style="width: 120px; height: 120px;">
           </div>
           </div>
           <p class="box-description" style="text-align: center;">Purchase full access to unlock every lesson and keep your progress moving.</p>
@@ -535,7 +535,7 @@ author_profile: false
           <div class="box-header">
             <h3 class="box-title">Succeed</h3>
             <div class="box-icon">
-            <img src="pictures/Medal pic.png" alt="Succeed" class="box-icon">
+            <img src="pictures/Medal pic.png" alt="Succeed" class="box-icon" style="width: 120px; height: 120px;">
           </div>
           </div>
           <p class="box-description" style="text-align: center;">Build confidence, master the material, and excel in competitions.</p>

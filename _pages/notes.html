@@ -71,7 +71,9 @@ permalink: /notes/
           if (data.items && data.items.length) {
             document.getElementById("notes-readings").innerHTML =
               '<div class="readings-box"><h3>Suggested readings</h3><ul>' +
-              data.items.map(s => `<li>${escapeHtml(s)}</li>`).join("") +
+              data.items.map(s => (s && typeof s === "object" && s.url)
+                ? `<li><a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.text || s.url)} ↗</a></li>`
+                : `<li>${escapeHtml(s)}</li>`).join("") +
               '</ul></div>';
           }
         }

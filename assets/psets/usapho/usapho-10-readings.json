@@ -1,7 +1,7 @@
 {
-  "html": "<p><ul><li>Kalda pg 13-16</li><li>Previous HRK readings</li></ul>\nFeel free to do problems from the readings as extra practice.</p>",
+  "html": "<p><ul><li><a href=\"https://www.ioc.ee/~kalda/ipho/Thermodyn.pdf\" target=\"_blank\" rel=\"noopener\">Kalda pg 13-16 ↗</a></li><li>Previous HRK readings</li></ul>\nFeel free to do problems from the readings as extra practice.</p>",
   "items": [
-    "Kalda pg 13-16",
+    { "text": "Kalda pg 13-16", "url": "https://www.ioc.ee/~kalda/ipho/Thermodyn.pdf" },
     "Previous HRK readings"
   ]
 }

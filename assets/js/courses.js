@@ -7,6 +7,26 @@
     usapho: { title: "USAPhO Course Series", short: "USAPhO" },
   };
 
+  // Recommended textbooks per course, shown in a "Lecture Readings" box at the
+  // top of each course page. Labels are just the book name.
+  const COURSE_READINGS = {
+    ap: [
+      { name: "Giancoli", url: "https://www.amazon.com/Physics-Principles-Applications-Standalone-book/dp/0321625927" },
+    ],
+    fma: [
+      { name: "Giancoli",   url: "https://www.amazon.com/Physics-Principles-Applications-Standalone-book/dp/0321625927" },
+      { name: "HRK V1",     url: "https://www.amazon.com/Physics-1-Robert-Resnick/dp/0471320579" },
+      { name: "Blue Morin", url: "https://www.amazon.com/Problems-Solutions-Introductory-Mechanics-David/dp/1482086921" },
+      { name: "Red Morin",  url: "https://www.amazon.com/Introduction-Classical-Mechanics-Problems-Solutions/dp/0521876222" },
+    ],
+    usapho: [
+      { name: "Red Morin", url: "https://www.amazon.com/Introduction-Classical-Mechanics-Problems-Solutions/dp/0521876222" },
+      { name: "HRK V1",    url: "https://www.amazon.com/Physics-1-Robert-Resnick/dp/0471320579" },
+      { name: "HRK V2",    url: "https://www.amazon.com/Physics-2-David-Halliday/dp/0471401943" },
+      { name: "Purcell",   url: "https://www.amazon.com/Electricity-Magnetism-Edward-M-Purcell/dp/1107014026" },
+    ],
+  };
+
   // Per-course lesson titles. Each entry's index (1-based) is the lesson number.
   // `has_pset: true` means a JSON problem set exists at /assets/psets/<course>/<id>.json.
   const LESSON_TITLES = {
@@ -158,6 +178,25 @@
     const list = document.createElement("div");
     list.className = "lesson-list";
 
+    // "Lecture Readings" box at the top, styled like a lesson box. Available to
+    // any signed-in user (the page itself is already login-gated).
+    const readings = COURSE_READINGS[courseId];
+    if (readings && readings.length) {
+      const rd = document.createElement("details");
+      rd.className = "lesson lesson-readings-box";
+      rd.innerHTML = `
+        <summary>
+          <span class="lesson-num"><img src="/pictures/bookicon.png" alt="" class="readings-book-icon"></span>
+          <span class="lesson-title">Lecture Readings</span>
+        </summary>
+        <div class="lesson-body">
+          <div class="readings-book-list">
+            ${readings.map(b => `<a href="${b.url}" target="_blank" rel="noopener">${escapeHtml(b.name)} ↗</a>`).join("")}
+          </div>
+        </div>`;
+      list.appendChild(rd);
+    }
+
     // Extra non-lesson "course-level" items appended after the lessons.
     // Right now this is just the F=ma practice exam.
     const extras = [];
@@ -220,11 +259,11 @@
         <div class="lesson-body">
           <div class="lesson-readings" data-lesson="${lesson.id}"></div>
           <div class="lesson-resources">
-            <a href="${lesson.video}"     class="resource ${lesson.hasVideo ? '' : 'disabled'}">▶ Video</a>
-            <a href="${lesson.slidesUrl}" class="resource ${lesson.hasSlides ? '' : 'disabled'}">▥ Slideshow</a>
-            <a href="${lesson.notesUrl}"  class="resource ${lesson.hasNotes ? '' : 'disabled'}">≡ Notes</a>
-            <a href="${lesson.psetUrl}"   class="resource ${lesson.hasPset  ? '' : 'disabled'}">✎ Problem Set</a>
-            ${courseId === "usapho" ? `<a href="${lesson.mockUrl}" class="resource ${lesson.hasMock ? '' : 'disabled'}">⏱ Mock</a>` : ""}
+            <a href="${lesson.video}"     class="resource ${lesson.hasVideo ? '' : 'disabled'}"><span class="r-icon">▶</span> <span class="r-label">Video</span></a>
+            <a href="${lesson.slidesUrl}" class="resource ${lesson.hasSlides ? '' : 'disabled'}"><span class="r-icon">▥</span> <span class="r-label">Slideshow</span></a>
+            <a href="${lesson.notesUrl}"  class="resource ${lesson.hasNotes ? '' : 'disabled'}"><span class="r-icon">≡</span> <span class="r-label">Notes</span></a>
+            <a href="${lesson.psetUrl}"   class="resource ${lesson.hasPset  ? '' : 'disabled'}"><span class="r-icon">✎</span> <span class="r-label">Problem Set</span></a>
+            ${courseId === "usapho" ? `<a href="${lesson.mockUrl}" class="resource ${lesson.hasMock ? '' : 'disabled'}"><span class="r-icon">⏱</span> <span class="r-label">Mock</span></a>` : ""}
           </div>
         </div>`;
 
@@ -273,10 +312,19 @@
         const data = await r.json();
         if (data.items && data.items.length) {
           el.innerHTML = '<span class="readings-label">Readings:</span> '
-            + data.items.map(escapeHtml).join("; ");
+            + data.items.map(renderReadingItem).join("; ");
         }
       } catch (e) { /* ignore — readings are optional */ }
     }
+  }
+
+  // A readings item is either a plain string or a { text, url } object; the
+  // latter renders as an outbound arrow link.
+  function renderReadingItem(it) {
+    if (it && typeof it === "object" && it.url) {
+      return `<a href="${escapeHtml(it.url)}" target="_blank" rel="noopener">${escapeHtml(it.text || it.url)} ↗</a>`;
+    }
+    return escapeHtml(it);
   }
 
   function escapeHtml(s) {

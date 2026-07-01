@@ -238,7 +238,7 @@ table {
       padding-right: 200px;
     }
     .table-container { display: flex; justify-content: center; }
-    .table-container > table { max-width: 760px; }
+    .table-container > table { width: 760px; max-width: 100%; }
 
     table {
       width: 100%; /* Table takes full width of its container */
@@ -336,7 +336,6 @@ table {
   </style>
 </head>
 <body>
-  <div class="container" style="margin-top:1rem;"><a href="/" style="display:inline-block;padding:.4rem .8rem;background:#e5e7eb;color:#333;text-decoration:none;border-radius:4px;font-size:.9rem;font-weight:500;">← Back to home</a></div>
   <!--<div class="banner">
     New Year's Discount: save $100 on tuition before December 31!
   </div>-->
@@ -350,12 +349,12 @@ table {
             AP Course Series
           </h2>
           <p>Our beginner level course prepares students to earn 5s on the AP Physics 1 exam and serves as preparation for our F=ma Course Series.</p>
+          <div style="display:flex;justify-content:center;margin-top:1.5rem;">
+            <a href="/login/" class="enroll-now-button" style="background-color:#fccf00;color:#1a1a1a;width:auto;padding:0 26px;text-decoration:none;"><span>Sign up</span></a>
+          </div>
         </div>
     </div>
-    <div class="button-row">
-      
-    </div>
-  
+
     <div class="full-width-divider" style="margin-top: 50px;"></div>
 
     <h2 class="centered-heading">
@@ -369,7 +368,7 @@ table {
           <img src="{{ site.baseurl }}/pictures/clock.png" alt="Icon 2" class="box-icon">
         </div>
         </div>
-        <p class="box-description">16 weeks of 1 hour lecture videos</p>
+        <p class="box-description">16 weeks of 1 hour lecture videos<br>Lecture notes, readings included<br>400+ homework problems</p>
       </div>
 
         <div class="box">
@@ -378,7 +377,7 @@ table {
             <img src="{{ site.baseurl }}/pictures/hw.png" alt="Icon 2" class="box-icon">
           </div>
           </div>
-          <p class="box-description">400+ homework problems<br>Full practice AP Exam<br>Revised curriculum for new AP rubric</p>
+          <p class="box-description">Full practice AP Exam<br>Revised curriculum for new AP rubric</p>
         </div>
 
         <div class="box">
