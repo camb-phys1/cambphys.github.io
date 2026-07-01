@@ -1,7 +1,7 @@
 {
-  "html": "<p><ul><li>Chapter 3 of Giancoli</li><li>Kalda Kinematics</li></ul>\nFeel free to do problems from the readings as extra practice.</p>",
+  "html": "<p><ul><li>Chapter 3 of Giancoli</li><li><a href=\"https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf\" target=\"_blank\" rel=\"noopener\">Kalda Kinematics ↗</a></li></ul>\nFeel free to do problems from the readings as extra practice.</p>",
   "items": [
     "Chapter 3 of Giancoli",
-    "Kalda Kinematics"
+    { "text": "Kalda Kinematics", "url": "https://www.ioc.ee/~kalda/ipho/kin_ENG.pdf" }
   ]
 }

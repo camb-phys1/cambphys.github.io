@@ -135,6 +135,18 @@ a.pset-back:hover { background: #d1d5db; }
   height: auto;
 }
 
+/* Cap oversized problem/solution figures in exams and mocks so they don't
+   dominate the page. Keeps aspect ratio; small images are unaffected. */
+.stem img,
+.solution-box img {
+  max-width: 100%;
+  max-height: 340px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: .75em auto;
+}
+
 .exam-bottom { display: flex; justify-content: center; margin-top: 2rem; }
 .finish-exam-btn {
   padding: 1rem 2.5rem; background: #1b6b34; color: #fff;
