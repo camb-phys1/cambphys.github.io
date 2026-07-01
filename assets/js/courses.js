@@ -215,7 +215,7 @@
           <span class="lesson-num">${String(lesson.number).padStart(2, "0")}</span>
           <span class="lesson-title">${lesson.title}</span>
           ${completed ? '<span class="done-icon" title="Problem set complete">✓</span>' : ""}
-          ${locked ? '<span class="lock-icon" aria-label="locked">🔒</span>' : ""}
+          ${locked ? '<span class="lock-icon" aria-label="locked"><img src="/pictures/Lock icon.JPG" alt="locked"></span>' : ""}
         </summary>
         <div class="lesson-body">
           <div class="lesson-readings" data-lesson="${lesson.id}"></div>
@@ -246,7 +246,7 @@
       tile.innerHTML = `
         <img class="lesson-extra-icon" src="${ex.icon || '/pictures/fmaicon.png'}" alt="">
         <span class="lesson-title">${ex.title}</span>
-        ${locked ? '<span class="lock-icon" aria-label="locked">🔒</span>' : ""}`;
+        ${locked ? '<span class="lock-icon" aria-label="locked"><img src="/pictures/Lock icon.JPG" alt="locked"></span>' : ""}`;
       if (locked) {
         tile.addEventListener("click", (e) => {
           e.preventDefault();

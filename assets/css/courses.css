@@ -118,6 +118,7 @@ body { background: #eaf2fb; }
 }
 .lesson .lesson-title { flex: 1; font-weight: 500; }
 .lesson .lock-icon { color: #8a6d00; }
+.lesson .lock-icon img { height: 1.1em; width: auto; vertical-align: -0.18em; }
 .lesson .done-icon { color: #1b6b34; font-weight: 700; font-size: 1.1em; }
 .lesson.completed .lesson-title { color: #1b6b34; }
 .lesson-body .resource.disabled {

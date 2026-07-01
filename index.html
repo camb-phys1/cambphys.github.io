@@ -138,6 +138,11 @@ author_profile: false
   box-shadow: 0px 0px 14px rgba(0,0,0, 0.2);
 }
 
+/* "How it works" boxes: background matches the icon PNGs' light-gray
+   background so the icon squares blend in (look transparent). Adjust the
+   hex if it doesn't exactly match your PNG background. */
+.how-box { background: #f2f2f2; }
+
 .box-content {
     display: flex; /* Use Flexbox to align content */
     justify-content: space-between; /* Space between left and right content */
@@ -403,8 +408,8 @@ author_profile: false
           </h2>
           <p>Prepare with former International Physics Olympiad gold medalists from MIT and Harvard.</p>
           <p>Log in or create a new account to view a free preview lesson with lecture video, slideshow, notes, and practice problems.</p>
-          <button class="scroll-button" onclick="scrollToCourseOfferings()">
-            See our courses
+          <button class="scroll-button" onclick="window.location.href='/login/'">
+            Sign up
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
             </svg>
@@ -416,7 +421,11 @@ author_profile: false
   </div>
 
   <div class="container">
-    
+
+    <h2 style="text-align: left; color: #000; font-size: 2em; margin: 2.5rem 0 1.5rem; font-weight: 700;">
+      Congratulations to Ayush Bansal for becoming IPhO 2026 Alternate for the US Physics Team!
+    </h2>
+
     <div class="row">
       <div class="row">
         <h3 style="font-size:xx-large">
@@ -501,29 +510,35 @@ author_profile: false
 
     </div>
 
-    <h2 class="centered-heading">
-      Why Cambridge Physics Academy?
-    </h2>
-
     <div class="custom-row">
-      <div class="box">
+        <div class="box how-box">
           <div class="box-header">
-            <h3 class="box-title">Experience</h3>
+            <h3 class="box-title">Sign up</h3>
             <div class="box-icon">
-            <img src="pictures/cap.png" alt="Icon 2" class="box-icon">
+            <img src="pictures/Sign up pic.png" alt="Sign up" class="box-icon">
           </div>
           </div>
-          <p class="box-description" style="text-align: center;">We bring years of experience in olympiad physics to our lectures, problem sets, and solutions. Evan and Collin have also taught with multiple organizations in the past with years of teaching experience. In our classes, we emphasize the importance of experience: practice makes perfect.</p>
+          <p class="box-description" style="text-align: center;">Sign up for a free preview of one lesson for each of our three courses.</p>
         </div>
 
-        <div class="box">
+        <div class="box how-box">
           <div class="box-header">
-            <h3 class="box-title">Excellence</h3>
+            <h3 class="box-title">Accelerate</h3>
             <div class="box-icon">
-            <img src="pictures/star2.png" alt="Icon 2" class="box-icon">
+            <img src="pictures/Accelerate pic.png" alt="Accelerate" class="box-icon">
           </div>
           </div>
-          <p class="box-description" style="text-align: center;">We aim to provide the best physics olympiad training materials possible. Exclusive olympiad tricks and strategies garnered from years of experience are embedded into our lectures and homework. Our students achieve excellence through our intensive and thorough preparation materials. </p>
+          <p class="box-description" style="text-align: center;">Purchase full access to unlock every lesson and keep your progress moving.</p>
+        </div>
+
+        <div class="box how-box">
+          <div class="box-header">
+            <h3 class="box-title">Succeed</h3>
+            <div class="box-icon">
+            <img src="pictures/Medal pic.png" alt="Succeed" class="box-icon">
+          </div>
+          </div>
+          <p class="box-description" style="text-align: center;">Build confidence, master the material, and excel in competitions.</p>
         </div>
       </div>
 
