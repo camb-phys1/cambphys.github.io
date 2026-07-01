@@ -167,7 +167,10 @@
     const header = document.createElement("div");
     header.className = "course-header";
     header.innerHTML = `
-      <h1>${course.title}</h1>
+      <div class="course-header-top">
+        <h1>${course.title}</h1>
+        ${upgraded ? "" : `<a class="course-upgrade-btn" href="/upgrade/?course=${encodeURIComponent(courseId)}">Upgrade</a>`}
+      </div>
       <p class="course-status">
         ${upgraded
           ? '<span class="badge ok">Full access</span>'
@@ -178,22 +181,30 @@
     const list = document.createElement("div");
     list.className = "lesson-list";
 
-    // "Lecture Readings" box at the top, styled like a lesson box. Available to
-    // any signed-in user (the page itself is already login-gated).
+    // "Lecture Readings" box at the top, styled like a lesson box. Locked (like
+    // lessons) until the user has upgraded.
     const readings = COURSE_READINGS[courseId];
     if (readings && readings.length) {
+      const rLocked = !upgraded;
       const rd = document.createElement("details");
-      rd.className = "lesson lesson-readings-box";
+      rd.className = "lesson lesson-readings-box" + (rLocked ? " locked" : "");
       rd.innerHTML = `
         <summary>
           <span class="lesson-num"><img src="/pictures/bookicon.png" alt="" class="readings-book-icon"></span>
           <span class="lesson-title">Lecture Readings</span>
+          ${rLocked ? '<span class="lock-icon" aria-label="locked"><img src="/pictures/lockicon2.png" alt="locked"></span>' : ""}
         </summary>
         <div class="lesson-body">
           <div class="readings-book-list">
             ${readings.map(b => `<a href="${b.url}" target="_blank" rel="noopener">${escapeHtml(b.name)} ↗</a>`).join("")}
           </div>
         </div>`;
+      if (rLocked) {
+        rd.querySelector("summary").addEventListener("click", (e) => {
+          e.preventDefault();
+          showUpgradeModal(course.title, courseId);
+        });
+      }
       list.appendChild(rd);
     }
 
@@ -339,7 +350,7 @@
     backdrop.innerHTML = `
       <div class="cp-modal" role="dialog" aria-modal="true">
         <h2>Upgrade required</h2>
-        <p>This lesson is part of the full <strong>${courseTitle}</strong>.
+        <p>This resource is part of the full <strong>${courseTitle}</strong>.
            You currently have free preview access (Lesson 1 only).</p>
         <p>Unlock all 16 lessons (video, slideshow, notes, and problem set) for the full course.</p>
         <div class="cp-modal-actions">

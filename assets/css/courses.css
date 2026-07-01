@@ -91,6 +91,24 @@ body { background: #eaf2fb; }
 /* Per-course header */
 .course-header { border-bottom: 1px solid #ddd; padding-bottom: 1rem;
   margin-bottom: 1.5rem; }
+.course-header-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+}
+.course-header-top h1 { margin: 0; }
+.course-upgrade-btn {
+  flex-shrink: 0;
+  display: inline-block; padding: .55rem 1.3rem;
+  background: #fccf00; font-weight: 700;
+  border-radius: 6px; text-decoration: none; white-space: nowrap;
+}
+.course-upgrade-btn,
+.course-upgrade-btn:link,
+.course-upgrade-btn:visited,
+.course-upgrade-btn:hover,
+.course-upgrade-btn:active,
+.course-upgrade-btn:focus { color: #000; text-decoration: none; }
+.course-upgrade-btn:hover { background: #ecc200; }
 .course-status { margin: .5rem 0 0; }
 .badge {
   display: inline-block; padding: .2rem .6rem; border-radius: 4px;
