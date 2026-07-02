@@ -159,6 +159,39 @@ permalink: /fma/
         font-size: 1.5em; /* Adjust font size as needed */
       }
 
+      .scroll-button {
+  background-color: #fccf00;
+  border: none;
+  padding: 10px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.scroll-button:hover {
+  background-color: #e2b900;
+}
+.scroll-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.3);
+}
+.scroll-button:active {
+  transform: translateY(1px);
+}
+.scroll-button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+.scroll-button:hover svg {
+  transform: translateX(3px);
+}
+
+
       .box {
         display: flex;
         flex-direction: column;
@@ -349,7 +382,12 @@ permalink: /fma/
             mechanics problems.
           </p>
           <div style="display:flex;justify-content:center;margin-top:1.5rem;">
-            <a href="/login/" class="enroll-now-button" style="background-color:#fccf00;color:#1a1a1a;width:auto;padding:0 26px;text-decoration:none;"><span>Sign up</span></a>
+            <button class="scroll-button" onclick="window.location.href='/login/'">
+            Sign up
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+            </svg>
+        </button>
           </div>
         </div>
       </div>
