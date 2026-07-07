@@ -156,7 +156,7 @@ permalink: /upgrade/
     document.getElementById("course_id").value = courseId;
 
     // Price depends on which course is being upgraded.
-    const prices = { ap: "$640", fma: "$800", usapho: "$1280" };
+    const prices = { ap: "$320", fma: "$400", usapho: "$640" };
     document.getElementById("course-price").textContent = prices[courseId] || "$640";
 
     // Prefill student email with logged-in user's email
