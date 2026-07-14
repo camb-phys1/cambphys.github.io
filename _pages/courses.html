@@ -68,6 +68,22 @@ permalink: /courses/
 <script src="/assets/js/supabase-config.js"></script>
 <script src="/assets/js/auth.js"></script>
 <script>
+  function formatAnnouncement(text) {
+    const escaped = String(text || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+    return escaped
+      .replace(
+        /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+      )
+      .replace(/\n/g, "<br>");
+  }
+
   (async function () {
     const user = await window.cambphysAuth.requireAuth();
     if (user) {
@@ -81,11 +97,11 @@ permalink: /courses/
     try {
       const order = ["everyone", "enrolled_any", "ap", "fma", "usapho"];
       const labels = {
-        everyone: "📣 Announcement",
-        enrolled_any: "📣 For enrolled students",
-        ap: "📣 For AP students",
-        fma: "📣 For F=ma students",
-        usapho: "📣 For USAPhO students",
+        everyone: "Announcement",
+        enrolled_any: "For enrolled students",
+        ap: "For AP students",
+        fma: "For F=ma students",
+        usapho: "For USAPhO students",
       };
       const { data } = await window.cambphysSupabase
         .from("announcements").select("audience, message");
@@ -102,7 +118,7 @@ permalink: /courses/
         label.textContent = labels[aud];
         const text = document.createElement("div");
         text.className = "announcement-text";
-        text.textContent = msg;
+        text.innerHTML = formatAnnouncement(msg);
         box.appendChild(label); box.appendChild(text);
         container.appendChild(box);
       });

@@ -233,3 +233,22 @@ body { background: #eaf2fb; }
     padding: .5rem .7rem; font-size: 1.1rem;
   }
 }
+
+.announcement-text a {
+  color: #174f87;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.announcement-text a:hover {
+  color: #0f365e;
+  text-decoration-thickness: 3px;
+}
+
+.announcement-text a:focus-visible {
+  outline: 3px solid #f2c94c;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
